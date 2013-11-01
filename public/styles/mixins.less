@@ -1,0 +1,324 @@
+// 
+// Mixins
+// --------------------------------------------
+
+@import "/styles/reset.less";
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Typography
+//
+// -----------------------------------------------------------------------
+//
+
+
+.highlight-pink(@fontSize:23px) {
+  color: @pink;
+  font-family: @baseFontFamily;
+  font-style: normal;
+  font-weight: bold;
+  font-size: @fontSize;
+}
+
+.alt-paragraph() {
+  font-family: @altFontFamily;
+  line-height: 30px;
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Reset CSS box
+//
+// -----------------------------------------------------------------------
+//
+
+
+.reset-box() {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Box dimensions
+//
+// -----------------------------------------------------------------------
+//
+
+
+.dimensions(@w,@h) {
+  width: @w;
+  height: @h;
+  .reset-box;
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Border radius
+//
+// -----------------------------------------------------------------------
+//
+
+
+.border-radius(@r) {
+  -moz-border-radius: @r;
+  -webkit-border-radius: @r;
+  border-radius: @r; 
+}
+.border-radius(@tl, @tr, @br, @bl) {
+  border-top-left-radius: @tl;
+  -moz-border-radius-topleft: @tl;
+  -webkit-border-top-left-radius: @tl;
+
+  border-top-right-radius: @tr;
+  -moz-border-radius-topright: @tr;
+  -webkit-border-top-right-radius: @tr;
+  
+  border-bottom-right-radius: @br;
+  -moz-border-radius-bottomright: @br;
+  -webkit-border-bottom-right-radius: @br;
+
+  border-bottom-left-radius: @bl;
+  -moz-border-radius-bottomleft: @bl;
+  -webkit-border-bottom-left-radius: @bl;
+} 
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Box sizing
+//
+// -----------------------------------------------------------------------
+//
+
+.box-sizing(@bs) {
+  -moz-box-sizing: @bs;
+  -ms-box-sizing: @bs;
+  -webkit-box-sizing: @bs;
+  -khtml-box-sizing: @bs;
+  box-sizing: @bs;
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Opacity
+//
+// -----------------------------------------------------------------------
+//
+
+.opacity(@o) {
+  @oPercent: @o * 100;
+  opacity: @o;
+  filter: ~"alpha(opacity = ({@oPercent}))";
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Background size
+//
+// -----------------------------------------------------------------------
+//
+
+.background-size(@bs) {
+  -webkit-background-size: @bs;
+  -moz-background-size: @bs;
+  -o-background-size: @bs;
+  background-size: @bs;
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Perspective
+//
+// -----------------------------------------------------------------------
+//
+
+
+.perspective(@p) {
+  -webkit-perspective: @p;
+  -moz-perspective: @p;
+  perspective: @p;
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Font colors (primarily for links)
+//
+// -----------------------------------------------------------------------
+//
+
+
+.font-color(@c) {
+  color: @c;
+  &:link    { color: @c; }
+  &:visited { color: @c; }
+  &:hover   { color: @c; }
+  &:active  { color: @c; }
+}
+.font-color(@c, @h) {
+  color: @c;
+  &:link    { color: @c; }
+  &:visited { color: @c; }
+  &:hover   { color: @h; }
+  &:active  { color: @h; }
+}
+.font-color(@c, @l, @v, @h, @a) {
+  color: @c;
+  &:link    { color: @l; }
+  &:visited { color: @v; }
+  &:hover   { color: @h; }
+  &:active  { color: @a; }
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Transitions, animations, transforms
+//
+// -----------------------------------------------------------------------
+//
+
+
+// Transition
+// -------------------------
+.transition(@t) {
+  -webkit-transition: @t;
+  -moz-transition: @t;
+  -ms-transition: @t;
+  -o-transition: @t;
+  transition: @t;
+}
+
+
+// Transition property: Transform
+// -------------------------
+.transition-property-transform() {
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -ms-transition-property: -ms-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;  
+}
+
+
+
+// Transform
+// -------------------------
+.transform(@t) {
+  -webkit-transform: @t;
+  -moz-transform: @t;
+  -ms-transform: @t;
+  -o-transform: @t;
+  transform: @t;
+}
+
+
+// Transform style
+// -------------------------
+.transform-style(@ts) {
+  -webkit-transform-style: @ts;
+  -moz-transform-style: @ts;
+  -ms-transform-style: @ts;
+  -o-transform-style: @ts;
+  transform-style: @ts;
+}
+
+
+// Transform origin
+// -------------------------
+.transform-origin(@to) {
+  -webkit-transform-origin: @to;
+  -moz-transform-origin: @to;
+  -ms-transform-origin: @to;
+  -o-transform-origin: @to;
+  transform-origin: @to;
+}
+
+
+// Animation iteration count
+// -------------------------
+.animation-iteration-count(@c) {
+  -webkit-animation-iteration-count: @c;
+  -moz-animation-iteration-count: @c;
+  -ms-animation-iteration-count: @c;
+  -o-animation-iteration-count: @c;
+  animation-iteration-count: @c;
+}
+
+
+// Animation timing function
+// -------------------------
+.animation-timing-function(@f) {
+  -webkit-animation-timing-function: @f;
+  -moz-animation-timing-function: @f;
+  -ms-animation-timing-function: @f;
+  -o-animation-timing-function: @f;
+  animation-timing-function: @f;
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Links and buttons
+//
+// -----------------------------------------------------------------------
+//
+
+
+
+
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Layout elements
+//
+// -----------------------------------------------------------------------
+//
+
+

@@ -1,0 +1,76 @@
+// 
+// Structure
+// --------------------------------------------
+
+@import "/styles/mixins.less";
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Layout
+//
+// -----------------------------------------------------------------------
+//
+
+
+html { height: 100%; }
+
+body {
+  height: 100%;
+
+  > div#content-wrapper {
+
+    // Sticky footer:
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -(@footerHeight + @footerPadding);
+    min-height: 100%;
+    // end
+
+    text-align: center;
+    overflow: hidden;
+
+    > div#page-content { 
+      display: none;
+      padding: 30px 0 0; 
+      overflow: hidden;
+      position: relative;
+    }
+
+    > div.push {
+      clear: both;
+      height: (@footerHeight + @footerPadding); 
+    }
+  }
+
+  // Footer
+  // -------------------------
+  #footer {
+    clear: both;
+    height: @footerHeight; 
+    padding-top: @footerPadding; 
+  } // End footer
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Landing Page
+//
+// -----------------------------------------------------------------------
+//
+
+
+.landing-page {
+  
+  
+
+}
+
+
