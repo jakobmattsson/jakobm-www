@@ -24,18 +24,24 @@
 @grayLighter:   #eee;
 @white:         #fff;
 
+@purple:        #4f0076;
+@blue:          #50B8C7;
+@lightBlue:     #B6F6FF;
+@green:         #4AC76B;
+@lightGreen:    #B6FFC9;
+
 // Layout variables
 // -------------------------
-@footerHeight: 50px;
-@footerPadding: 1px;
-@contentWidth: 940px;
+@bodyBackgroundColor: #f2f2f2;
+@footerHeight: 100px;
+@contentWidth: 750px;
 @contentWidthTablet: 720px;
 
 // Type
 // -------------------------
-@baseFontFamily:        "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@altFontFamily:         "Merriweather", Georgia, "Times New Roman", Times, serif;
-@baseFontSize:          100%;
+@baseFontFamily:        "Rambla", Helvetica, Arial, sans-serif;
+@altFontFamily:         "adobe-caslon-pro", Georgia, "Times New Roman", Times, serif;
+@baseFontSize:          180%;
 @baseLineHeight:        1.5;
 
 // Media Queries 
@@ -54,41 +60,50 @@
 //
 
 body {
-  font-family: @baseFontFamily;
+  font-family: @altFontFamily;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
 }
 
 h1 {
-  font-family: 'Source Sans Pro';
-  color: @black;
-  font-size: 76px;
-  letter-spacing: -2px;
-  font-weight: 900;
-  line-height: 76px;
-  margin: 20px 0;
-
-  @media @mobile {
-    font-size: 48px;
-    letter-spacing: -1px;
-    line-height: 48px;
-  }
+  font-family: @baseFontFamily;
+  font-weight: normal;
+  font-size: 1.7em;
+  @media @mobile {}
 }
 
 h2 {
-  font-family: 'Source Sans Pro';
-  color: @black;
-  font-size: 35px;
-  font-weight: 900;
-  line-height: 35px;
-  margin: 20px 0;
-
-  @media @mobile {
-    font-size: 30px;
-    line-height: 30px;
-  }
+  font-family: @baseFontFamily;
+  @media @mobile {}
 }
 
+.transition(@t) {
+  -webkit-transition: @t;
+  -moz-transition: @t;
+  -ms-transition: @t;
+  -o-transition: @t;
+  transition: @t;
+}
+
+a {
+  .font-color(@lightBlue, @blue);
+  .transition(all 0.3s);
+  text-decoration: none;
+  position: relative;
+  &:after {
+    .transition(all 0.3s);
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0.25em;
+    width: 100%;
+    height: 1px;
+    left: 0;
+  }
+  &:hover:after { 
+    background: @blue;
+  }
+}
 
 
 

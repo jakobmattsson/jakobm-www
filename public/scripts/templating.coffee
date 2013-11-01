@@ -66,7 +66,7 @@ $(document).ready ->
   if Modernizr.history
     window.history.replaceState({'url':url}, url, url)
   showPage(url)
-  # dustRender('navbar', 'navbar', {pages})
+  # dustRender('nav', 'nav', {pages})
 
 
 
