@@ -54,9 +54,21 @@ body {
       > p.contact-info {
         .font-color(rgba(255, 255, 255, 0.5));
         bottom: 0;
+        font-size: 0.7em;
         left: 20px;
         max-width: @contentWidth;
         position: absolute;
+        > a.speaker-deck {
+          position: relative;
+          > i.fa-caret-left, > i.fa-caret-right {
+            .font-color(@purple);
+            font-size: 0.9em;
+            left: 0.08em;
+            position: absolute;
+            bottom: 0.68em;
+          }
+          > i.fa-caret-right { left: 0.52em; }
+        }
       } 
     }
 
@@ -67,6 +79,10 @@ body {
         font-size: 0.7em; 
         > a.logo { margin: 30px 0 0 0; }
         > h1 { margin: 130px 0 50px 0; }
+        > p.contact-info { 
+          font-size: 1em; 
+          > span.prop { display: none; }
+        }
       }
     }
   }
