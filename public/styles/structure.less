@@ -57,17 +57,7 @@ body {
         left: 20px;
         max-width: @contentWidth;
         position: absolute;
-        > a.speaker-deck {
-          position: relative;
-          > i.fa-caret-left, > i.fa-caret-right {
-            .font-color(@purple);
-            font-size: 0.9em;
-            left: 0.08em;
-            position: absolute;
-            bottom: 0.68em;
-          }
-          > i.fa-caret-right { left: 0.52em; }
-        }
+        a.speaker-deck { .speaker-deck-icon(@purple); }
       } 
     }
 
@@ -169,6 +159,35 @@ body {
 .about {
 
   .page();
+
+  > ul.mini-cv {
+    list-style: none;
+    margin: 50px 0;
+    padding: 0 0 0 70px;
+    > li {
+      border-left: 8px solid @green;
+      padding: 0 0 40px 30px;
+      position: relative;
+
+      &::before {
+        @circleSize: 30px;
+        .dimensions(@circleSize, @circleSize);
+        .border-radius(@circleSize);
+        content: '';
+        display: block;
+        position: absolute;
+        border: 8px solid @green;
+        background: @bodyBackgroundColor;
+        left: -27px;
+        top: -5px;
+      }
+    }
+  }
+
+  > p.social-links {
+    font-size: 2em;
+    > a.speaker-deck { .speaker-deck-icon-large(@bodyBackgroundColor); }
+  }
 
 }
 
