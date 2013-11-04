@@ -307,8 +307,26 @@
 //
 
 
-
-
+.speaker-deck-icon(@backgroundColor) {
+  position: relative;
+  > i.fa-caret-left, > i.fa-caret-right {
+    .font-color(@backgroundColor);
+    font-size: 0.7em;
+    left: 0.17em;
+    position: absolute;
+    bottom: 1em;
+  }
+  > i.fa-caret-right { left: 0.63em; }
+}
+.speaker-deck-icon-large(@backgroundColor) {
+  .speaker-deck-icon(@backgroundColor);
+  > i.fa-caret-left, > i.fa-caret-right {
+    font-size: 0.5em;
+    left: 0.4em;
+    bottom: 1.55em;
+  }
+  > i.fa-caret-right { left: 0.95em; }
+}
 
 
 
@@ -332,6 +350,10 @@
   }
   > p {
     font-size: 1.3em;
+  }
+
+  a {
+    .font-color(@green, lighten(@green, 10%));
   }
 }
 
