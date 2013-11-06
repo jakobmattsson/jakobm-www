@@ -121,33 +121,41 @@ body {
   display: none;
 
   > blockquote {
-    .dimensions(auto, auto);
-    overflow: hidden;
-    margin: 60px 0;
-
-    @imgSize: 160px;
-    > img {
-      .dimensions(@imgSize, @imgSize);
-      .border-radius(@imgSize/2);
-      float: left;
-    }
-    > p {
-      text-indent: -1.3em;
-      margin: 10px 0 0 (@imgSize + 30px);
-      &::before, &::after {
-        .font-color(@gray);
-        line-height: 0;
-        font-size: 2.5em;
-        vertical-align: -0.35em;
-      }
-      &::before {
-        content: '\201C';
-      }
-      &::after {
-        content: '\201D';
-      }
-    }
+    .reference-quote();
   }
+}
+
+
+
+
+//
+// -----------------------------------------------------------------------
+//
+// Speaker Page
+//
+// -----------------------------------------------------------------------
+//
+
+
+.speaker {
+
+  .page();
+
+  display: none;
+
+  > img.wide {
+    .dimensions(100%, auto);
+    .border-radius(4px);
+  }
+
+  > h2 {
+    margin-top: 60px;
+  }
+
+  > blockquote {
+    .reference-quote-short();
+  }
+
 }
 
 
@@ -165,6 +173,16 @@ body {
 .about {
 
   .page();
+
+  display: none;
+
+  > img {
+    @imgSize: 300px;
+    .dimensions(@imgSize, @imgSize);
+    .border-radius(@imgSize);
+    margin: -40px -20px 20px 20px;
+    float: right;
+  }
 
   > ul.mini-cv {
     list-style: none;
@@ -198,11 +216,80 @@ body {
 }
 
 
+//
+// -----------------------------------------------------------------------
+//
+// Blog Page
+//
+// -----------------------------------------------------------------------
+//
+
+
+.blog {
+
+  .page();
+
+  display: none;
+
+  > article {
+    margin: 0 0 3em;
+
+    > header { .blog-header(); }
+    > section {
+      > p { margin: 0.5em 0; }
+    }
+  }
+
+}
 
 
 
 
+//
+// -----------------------------------------------------------------------
+//
+// Blog Post Page
+//
+// -----------------------------------------------------------------------
+//
 
+
+.blog-post {
+
+  .page();
+
+  // display: none;
+
+  > h1 {
+    > a { font-weight: normal; }
+  }
+
+  > article {
+    > header { .blog-post-header(); }
+    > section {
+      > blockquote {
+        .blog-quote();
+      }
+      > img {
+        .border-radius(4px);
+        max-width: 100%;
+
+        &.border {
+          border: 1px solid @grayLight;
+          padding: 5px;
+        }
+        &.right { float: right; }
+        &.left { float: left; }
+      }
+      > pre {
+        .border-radius(4px);
+        font-size: 0.8em;
+        padding: 1.5em 2.5em 1.7em;
+      }
+    }
+  }
+
+}
 
 
 
