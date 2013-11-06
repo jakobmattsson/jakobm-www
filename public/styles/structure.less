@@ -55,7 +55,7 @@ body {
       > p { 
         .font-color(rgba(255, 255, 255, 0.5)); 
       }
-      > p.contact-info {
+      > div.contact-info {
         .font-color(rgba(255, 255, 255, 0.5));
         .transition(all 0.5s);
         bottom: 0;
@@ -63,7 +63,51 @@ body {
         left: 20px;
         max-width: @contentWidth;
         position: absolute;
-        a.speaker-deck { .speaker-deck-icon(@purple); }
+
+        > ul.social-links {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          > li {
+            position: relative;
+            float: left;
+            margin: 0 0.5em 0 0;
+            > span.tooltip {
+              .border-radius(3px 3px 3px 0px);
+              .font-color(@purple);
+              .transition(all 0.3s);
+              background: @lightBlue;
+              cursor: default;
+              font-family: @baseFontFamily;
+              font-size: 0.8em;
+              left: 0.5em;
+              opacity: 0;
+              padding: 0.1em 0.8em 0.14em;
+              position: absolute;
+              top: -2.3em;
+              white-space: nowrap;
+              &::after {
+                .dimensions(0, 0);
+                @triangleSize: 0.5em;
+                border-bottom: @triangleSize solid transparent;
+                border-left: @triangleSize solid @lightBlue;
+                border-right: @triangleSize solid transparent;
+                border-top: @triangleSize solid @lightBlue;
+                bottom: -@triangleSize;
+                content: '';
+                left: 0;
+                position: absolute;
+              }
+            }
+            > a.speaker-deck { .speaker-deck-icon(@purple); }
+            &:hover {
+              > span.tooltip {
+                opacity: 1;
+                &:hover { opacity: 0; }
+              }
+            }
+          }
+        }
       } 
     }
 
@@ -74,7 +118,7 @@ body {
         font-size: 0.7em; 
         > a.logo { margin: 30px 0 0 0; }
         > h1 { margin: 130px 0 50px 0; }
-        > p.contact-info { 
+        > div.contact-info { 
           font-size: 1em; 
           > span.prop { display: none; }
         }
@@ -174,7 +218,7 @@ body {
 
   .page();
 
-  display: none;
+  // display: none;
 
   > img {
     @imgSize: 300px;
@@ -208,9 +252,33 @@ body {
     }
   }
 
-  > p.social-links {
-    font-size: 2em;
-    > a.speaker-deck { .speaker-deck-icon-large(@bodyBackgroundColor); }
+  > ul.social-links {
+    margin: 0;
+    padding: 0 0 0 60px;
+    font-size: 1.3em;
+    list-style: none;
+    > li {
+      padding: 0 0 0.3em;
+      > a {
+        font-family: @baseFontFamily;
+        font-weight: normal;
+        display: inline-block;
+        padding: 0 0 0 2em;
+        position: relative;
+        > span {
+          font-family: @altFontFamily;
+          font-size: 1.3em;
+          display: block;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          &.speaker-deck { 
+            .speaker-deck-icon-large(@bodyBackgroundColor); 
+            position: absolute;
+          }
+        }
+      }
+    }
   }
 
 }
@@ -258,7 +326,7 @@ body {
 
   .page();
 
-  // display: none;
+  display: none;
 
   > h1 {
     > a { font-weight: normal; }
