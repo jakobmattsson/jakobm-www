@@ -314,7 +314,7 @@
     font-size: 0.7em;
     left: 0.17em;
     position: absolute;
-    bottom: 1em;
+    bottom: 0.25em;
   }
   > i.fa-caret-right { left: 0.63em; }
 }
@@ -323,7 +323,7 @@
   > i.fa-caret-left, > i.fa-caret-right {
     font-size: 0.5em;
     left: 0.4em;
-    bottom: 1.45em;
+    bottom: 0.55em;
   }
   > i.fa-caret-right { left: 0.95em; }
 }
@@ -345,17 +345,18 @@
   font-size: 0.7em;
   max-width: 35em;
 
-  > h1 {
-    margin: 0 0 50px;
+  > h1 { 
+    margin: 0 0 50px; 
+    line-height: 1.2;
   }
-  > p {
-    font-size: 1.3em;
-  }
+  > p { font-size: 1.3em; }
 
   a {
     .font-color(@green, lighten(@green, 15%));
     font-weight: bold;
   }
+
+  @media @mobile { padding: 60px 20px 100px; }
 }
 
 
@@ -371,16 +372,30 @@
     float: left;
   }
   > p {
-    text-indent: -1.2em;
+    text-indent: -0.9em;
     margin: 10px 0 0 (@imgSize + 30px);
     &::before, &::after {
       .font-color(@gray);
       line-height: 0;
-      font-size: 2.5em;
-      vertical-align: -0.35em;
+      font-size: 2.5rem;
+      vertical-align: -0.25em;
     }
     &::before { content: '\201C'; }
     &::after { content: '\201D'; }
+  }
+  > span {
+    float: right;
+    &::before { content: '\2013\00a0'; }
+  }
+
+  @media @mobile {
+    overflow: visible;
+    padding: 0 0 0 40px;
+    > img { 
+      float: none; 
+      margin: 0 0 0 -20px;
+    }
+    > p { margin: 10px 0 0 0; }
   }
 }
 .reference-quote-short() {
@@ -391,9 +406,13 @@
     text-indent: -0.95em;
     margin: 10px 0 0 40px;
     &::before, &::after {
-      font-size: 2em;
+      font-size: 2rem;
       vertical-align: -0.25em;
     }
+  }
+  @media @mobile {
+    margin-left: 15px;
+    padding: 0;
   }
 }
 
@@ -414,7 +433,10 @@
 }
 .blog-post-header() {
   .blog-header();
-  > h2 { font-size: 2.5em; }
+  > h2 { 
+    font-size: 2.5em; 
+    @media @mobile { font-size: 2em; }
+  }
 }
 
 
@@ -423,6 +445,7 @@
   margin: 2em 0;
   padding: 0 0 0 60px;
   text-align: right;
+  @media @mobile { padding: 0 0 0 20px; }
   > p {
     font-size: 1.8em;
     font-style: italic;
