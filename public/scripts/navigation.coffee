@@ -25,6 +25,7 @@ $(document).ready ->
     $('button.close, .nav a.logo').off('click')
     $('.nav p a').off('click')
     $(window).scroll -> null
+    $('.scroll-to-top').hide()
     $('.scroll-to-top').off('click')
 
   initLaptopNav = ->
