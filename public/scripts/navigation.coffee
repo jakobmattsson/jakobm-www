@@ -3,7 +3,7 @@ $(document).ready ->
   mobileMaxWidth = 760
 
   initMobileNav = ->
-    $('button.close, .nav a.logo').click (event) ->
+    $('a.close, .nav a.logo').click (event) ->
       event.preventDefault()
     $('.nav p a').click (event) ->
       event.preventDefault()
@@ -22,14 +22,14 @@ $(document).ready ->
       return false
 
   wipeMobileNav = ->
-    $('button.close, .nav a.logo').off('click')
+    $('a.close, .nav a.logo').off('click')
     $('.nav p a').off('click')
     $(window).scroll -> null
     $('.scroll-to-top').hide()
     $('.scroll-to-top').off('click')
 
   initLaptopNav = ->
-    $('button.close, .nav a.logo').click (event) ->
+    $('a.close, .nav a.logo').click (event) ->
       event.preventDefault()
       $('.content').hide()
       window.scrollTo(0, 0)
@@ -40,7 +40,7 @@ $(document).ready ->
       $('.nav').addClass('collapsed')
 
   wipeLaptopNav = ->
-    $('button.close, .nav a.logo').off('click')
+    $('a.close, .nav a.logo').off('click')
     $('.nav p a').off('click')
 
   updateResponsiveNav = do ->
