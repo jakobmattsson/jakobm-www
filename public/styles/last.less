@@ -1,0 +1,67 @@
+@import "/styles/mixins.less";
+
+.collapse-nav() {
+  > div.nav {
+    @media @laptop, @tablet {
+      width: 25%;
+      min-width: 260px;
+      > div {
+        font-size: 0.7em;
+        > a.logo { margin: 30px 0 0 0; }
+        > h1 { margin: 130px 0 50px 0; }
+        > div.contact-info {
+          font-size: 1em;
+          > span.prop { display: none; }
+        }
+      }
+    }
+  }
+  > div.content {
+    display: block;
+  }
+}
+
+body.show-coder {
+  .collapse-nav();
+  > div.content > div.coder { display: block; }
+}
+
+body.show-train {
+  .collapse-nav();
+  > div.content > div.train { display: block; }
+}
+
+body.show-recruit {
+  .collapse-nav();
+  > div.content > div.recruit { display: block; }
+}
+
+body.show-architect {
+  .collapse-nav();
+  > div.content > div.architect { display: block; }
+}
+
+body.show-duediligence {
+  .collapse-nav();
+  > div.content > div.duediligence { display: block; }
+}
+
+body.show-speaker {
+  .collapse-nav();
+  > div.content > div.speaker { display: block; }
+}
+
+body.show-about {
+  .collapse-nav();
+  > div.content > div.about { display: block; }
+}
+
+body.show-blog {
+  .collapse-nav();
+  > div.content > div.blog { display: block; }
+}
+
+body.show-blog-post {
+  .collapse-nav();
+  > div.content > div.blog-post { display: block; }
+}

@@ -1,0 +1,20 @@
+- Om man resizar och går från mobile till full så borde den sätta scrollen på något bra sätt.
+
+Några case att testa:
+- utan javascript
+- utan pushState (ie9)
+- med allting
+
+Övrigt:
+- Skriv scriptet som genererar själva filerna som ska laddas upp
+- Få den att funka helt offline
+- Få bort jQuery
+- Kan man fixa en "åke-animation" när varje sida laddas?
+- Gör en enkel 404 sida också
+- Uppdatera social-links så att de går rätt
+- Processa kodexempel i bloggposter på servern; inte i klienten
+
+Erik:
+- 404-sida
+- är inte footern på landingssidan lite för nära botten?
+- siten "hoppar" lite när man växlar mellan två sidor där ena har "lite" innehåll och den andra har "mycket"

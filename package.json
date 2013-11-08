@@ -19,9 +19,10 @@
   "opra": {
     "root": "public",
     "targetDir": "tmp/upload",
-    "extraFiles": [".code", "img"],
+    "extraFiles": ["img"],
     "opraFiles": {
-      "index.html": {
+      "source.html": {
+        "inline": true,
         "concat": true,
         "compress": true
       }
@@ -42,6 +43,6 @@
     "preinstall": "npm run clobber",
     "postinstall": "bower install",
     "deploy": "npm run clean && opra-compiler && bucketful",
-    "start": "opra -p 8200 -r public -n public/index.html"
+    "start": "coffee server.coffee"
   }
 }

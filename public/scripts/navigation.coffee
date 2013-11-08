@@ -1,66 +1,91 @@
-$(document).ready ->
+run = (win, doc, hist) ->
 
-  mobileMaxWidth = 760
+  animatedScrollTo = (y) ->
+    $('html, body').animate({ scrollTop: y }, 300)
 
-  initMobileNav = ->
-    $('a.close, .nav a.logo').click (event) ->
-      event.preventDefault()
-    $('.nav p a').click (event) ->
-      event.preventDefault()
-      $('.content').show()
-      pageScrollPos = $('.nav').height()
-      $('html, body').animate({scrollTop: pageScrollPos}, 300)
+  toggleScrollButton = (showScrollButton) ->
+    $('.scroll-to-top').toggle(showScrollButton)
 
-    $(window).scroll ->
-      if $(this).scrollTop() > ($('.nav').height() - 10)
-        $('.scroll-to-top').show()
+  getScrollLocation = ->
+    $(win).scrollTop()
+
+  getNavHeight = ->
+    $('.nav').height()
+
+
+
+
+
+  showPageMarkup = (name) ->
+    doc.body.className = 'show-' + (name || 'start')
+
+  interceptClickHandler = (pattern, handler) ->
+    nodes = doc.querySelectorAll(pattern)
+    for node in nodes
+      node.addEventListener('click', prevented(handler))
+
+
+  prevented = (f) ->
+    (e) ->
+      e.preventDefault()
+      f.apply(this, arguments)
+      false
+
+  pageClassFromUrl = (url) ->
+    url.slice(1)
+
+  isMobileSized = ->
+    win.innerWidth <= 760
+
+  showPage = (name = '') ->
+    if isMobileSized()
+      if !name
+        animatedScrollTo(0)
       else
-        $('.scroll-to-top').hide()
-
-    $('.scroll-to-top').click ->
-      $('html, body').animate({scrollTop: 0}, 300)
-      return false
-
-  wipeMobileNav = ->
-    $('a.close, .nav a.logo').off('click')
-    $('.nav p a').off('click')
-    $(window).scroll -> null
-    $('.scroll-to-top').hide()
-    $('.scroll-to-top').off('click')
-
-  initLaptopNav = ->
-    $('a.close, .nav a.logo').click (event) ->
-      event.preventDefault()
-      $('.content').hide()
-      window.scrollTo(0, 0)
-      $('.nav').removeClass('collapsed')
-    $('.nav p a').click (event) ->
-      event.preventDefault()
-      $('.content').show()
-      $('.nav').addClass('collapsed')
-
-  wipeLaptopNav = ->
-    $('a.close, .nav a.logo').off('click')
-    $('.nav p a').off('click')
-
-  updateResponsiveNav = do ->
-    screenIsMobile = window.innerWidth <= mobileMaxWidth
-    if screenIsMobile
-      initMobileNav()
+        showPageMarkup(name)
+        pageScrollPos = getNavHeight()
+        animatedScrollTo(pageScrollPos)
     else
-      initLaptopNav()
-    ->
-      if screenIsMobile and window.innerWidth > mobileMaxWidth
-        wipeMobileNav()
-        initLaptopNav()
-        screenIsMobile = false
-      else if !screenIsMobile and window.innerWidth <= mobileMaxWidth
-        wipeLaptopNav()
-        initMobileNav()
-        screenIsMobile = true
+      showPageMarkup(name)
+      win.scrollTo(0, 0)
+
+  goToCurrent = ->
+    path = location.pathname
+    name = pageClassFromUrl(path)
+    showPage(name)
+
+  setPage = (name = '') ->
+    showPage(name)
+    hist.pushState(null, null, '/' + name)
 
 
-  updateResponsiveNav()
-  $(window).resize ->
-    updateResponsiveNav()
 
+
+
+  win.addEventListener 'popstate', ->
+    goToCurrent()
+
+  win.addEventListener 'scroll', ->
+    showScrollToTop = isMobileSized() && getScrollLocation() > getNavHeight() - 10
+    toggleScrollButton(showScrollToTop)
+
+  win.addEventListener 'resize', ->
+    # om denna går från mobil till desktop (eller tvärtom) så ska scrollen uppateras
+    path = location.pathname
+    name = pageClassFromUrl(path)
+    showPage(name)
+
+  interceptClickHandler 'a.close, .nav a.logo', ->
+    setPage()
+
+  interceptClickHandler '.nav p a', ->
+    href = @getAttribute('href')
+    page = pageClassFromUrl(href)
+    setPage(page)
+
+  interceptClickHandler '.scroll-to-top', ->
+    setPage()
+
+
+
+run(window, window.document, window.history)
