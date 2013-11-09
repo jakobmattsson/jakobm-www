@@ -6,13 +6,10 @@ Några case att testa:
 - med allting
 
 Övrigt:
-- Skriv scriptet som genererar själva filerna som ska laddas upp
-- Få den att funka helt offline
-- Få bort jQuery
-- Kan man fixa en "åke-animation" när varje sida laddas?
+- Få bort jQuery (måste testa IE9 för detta)
 - Gör en enkel 404 sida också
-- Uppdatera social-links så att de går rätt
 - Processa kodexempel i bloggposter på servern; inte i klienten
+- Gör en fallback-sida om man inte har en bra browser (lite i stil med 404an)
 
 Erik:
 - 404-sida
