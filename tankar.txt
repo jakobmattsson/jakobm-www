@@ -10,6 +10,9 @@ Några case att testa:
 - Gör en enkel 404 sida också
 - Processa kodexempel i bloggposter på servern; inte i klienten
 - Gör en fallback-sida om man inte har en bra browser (lite i stil med 404an)
+- Om man anger en hash-url när browsern har history-api, då animerar den första sidvisningen (men det ska den inte!)
+  * Funkar det om man väntar med att ladda cssen till javascriptet initierats?
+  * Skulle kunna köra all css utan den som animerar
 
 Erik:
 - 404-sida

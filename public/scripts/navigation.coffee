@@ -1,3 +1,10 @@
+memoize = (f) ->
+  memory = {}
+  (arg) ->
+    if !memory[arg]?
+      memory[arg] = f(arg)
+    memory[arg] = true
+
 prevented = (f) ->
   (e) ->
     e.preventDefault()
@@ -7,24 +14,70 @@ prevented = (f) ->
 pageClassFromUrl = (url) ->
   url.slice(1)
 
+notifyOnChange = (f, delay, callback) ->
+  oldValue = f()
+  setInterval ->
+    newValue = f()
+    callback() if newValue != oldValue
+    oldValue = newValue
+  , delay
+
+
+
+createHistoryWrapper = (win, loc, hist) ->
+
+  hasHistoryAPI = false # hist?
+
+  path = pageClassFromUrl(loc.pathname)
+  hash = pageClassFromUrl(loc.hash)
+
+  if hasHistoryAPI
+    actual = path || hash
+    loc.hash = ''
+    hist.replaceState(null, null, '/' + actual)
+  else
+    actual = hash || path
+    hist.replaceState(null, null, '/')
+    loc.hash = actual
+    win.document.body.className = "show-" + actual
+
+  pushState = (name) ->
+    if hasHistoryAPI
+      hist.pushState(null, null, '/' + name)
+    else
+      loc.hash = name
+
+  getCurrent = ->
+    if hasHistoryAPI
+      pageClassFromUrl(loc.pathname)
+    else
+      pageClassFromUrl(loc.hash)
+
+  onPopState = (f) ->
+    if hasHistoryAPI
+      win.addEventListener 'popstate', ->
+        f(getCurrent())
+    else
+      notifyOnChange (-> loc.hash), 10, ->
+        f(getCurrent())
+
+  { pushState, onPopState, getCurrent }
+
 
 
 
 
 run = (win, doc, hist, loc) ->
 
+  { pushState, onPopState, getCurrent } = createHistoryWrapper(win, loc, hist)
+
   loadScript = (url) ->
-    node = document.createElement("script")
+    node = doc.createElement('script')
     node.setAttribute('type', 'text/javascript')
     node.setAttribute('src', url)
     doc.body.insertBefore(node)
-  
-  loadScriptOnce = do ->
-    loaded = {}
-    (url) ->
-      return if loaded[url]
-      loaded[url] = true
-      loadScript(url)
+
+  loadScriptOnce = memoize(loadScript)
 
   animatedScrollTo = (y) ->
     $('html, body').animate({ scrollTop: y }, 300)
@@ -76,31 +129,21 @@ run = (win, doc, hist, loc) ->
       showPageMarkup(name)
       win.scrollTo(0, 0)
 
-  goToCurrent = ->
-    path = loc.pathname
-    name = pageClassFromUrl(path)
-    showPage(name)
-
   setPage = (name = '') ->
     showPage(name)
-    hist.pushState(null, null, '/' + name)
+    pushState(name)
 
-
-
-
-
-  win.addEventListener 'popstate', ->
-    goToCurrent()
+  onPopState (path) ->
+    showPage(path)
 
   win.addEventListener 'scroll', ->
-    showScrollToTop = isMobileSized() && getScrollLocation() > getNavHeight() - 10
+    isScrolledDown = getScrollLocation() > getNavHeight() - 10
+    showScrollToTop = isMobileSized() && isScrolledDown
     toggleScrollButton(showScrollToTop)
 
   win.addEventListener 'resize', ->
     # om denna går från mobil till desktop (eller tvärtom) så ska scrollen uppateras
-    path = loc.pathname
-    name = pageClassFromUrl(path)
-    showPage(name)
+    showPage(getCurrent())
 
   interceptClickHandler 'a.close, .nav a.logo', ->
     setPage()
