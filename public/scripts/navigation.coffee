@@ -107,6 +107,11 @@ run = (win) ->
     $('.nav').height()
 
 
+  scrollTo = ({ y, animate }) ->
+    if animate
+      animatedScrollTo(y)
+    else
+      win.scrollTo(0, y)
 
 
 
@@ -134,15 +139,16 @@ run = (win) ->
 
   showPage = (name = '') ->
     if isMobileSized()
+      animate = name != getCurrent()
       if !name
-        animatedScrollTo(0)
+        scrollTo({ y: 0, animate })
       else
         showPageMarkup(name)
         pageScrollPos = getNavHeight()
-        animatedScrollTo(pageScrollPos)
+        scrollTo({ y: pageScrollPos, animate })
     else
       showPageMarkup(name)
-      win.scrollTo(0, 0)
+      scrollTo({ y: 0, animate: false })
 
   setPage = (name = '') ->
     showPage(name)
@@ -157,8 +163,7 @@ run = (win) ->
     toggleScrollButton(showScrollToTop)
 
   win.addEventListener 'resize', ->
-    # om denna går från mobil till desktop (eller tvärtom) så ska scrollen uppateras
-    showPage(getCurrent())
+    showPage(getCurrent(), false)
 
   interceptClickHandler 'a.close, .nav a.logo', ->
     setPage()
