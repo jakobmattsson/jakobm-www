@@ -14,6 +14,8 @@ Några case att testa:
   * Funkar det om man väntar med att ladda cssen till javascriptet initierats?
   * Skulle kunna köra all css utan den som animerar
 
+- Bygg det hela utan opra. Watcha alla filer och kompilera om det som behövs. Framför allt för att få transitions att laddas in efteråt, men även för att göra en setup utan opra i största allmänhet!
+
 Erik:
 - 404-sida
 - är inte footern på landingssidan lite för nära botten?

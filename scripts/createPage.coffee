@@ -5,7 +5,7 @@ exports.build = (page, callback) ->
     return callback(err) if err?
 
     name = page.slice(1) || 'home'
-    moddedResult = result.replace(/<body[^>]*>/, '<body class="show-' + name + '">')
+    moddedResult = result #.replace(/<body[^>]*>/, '<body class="show-' + name + '">')
     callback(null, moddedResult)
 
 exports.build404 = (callback) ->

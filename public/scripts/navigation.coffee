@@ -26,20 +26,20 @@ notifyOnChange = (f, delay, callback) ->
 
 createHistoryWrapper = (win, loc, hist) ->
 
-  hasHistoryAPI = false # hist?
+  hasHistoryAPI = hist?
 
-  path = pageClassFromUrl(loc.pathname)
-  hash = pageClassFromUrl(loc.hash)
+  init = ->
+    path = pageClassFromUrl(loc.pathname)
+    hash = pageClassFromUrl(loc.hash)
 
-  if hasHistoryAPI
-    actual = path || hash
-    loc.hash = ''
-    hist.replaceState(null, null, '/' + actual)
-  else
-    actual = hash || path
-    hist.replaceState(null, null, '/')
-    loc.hash = actual
-    win.document.body.className = "show-" + actual
+    if hasHistoryAPI
+      actual = path || hash
+      loc.hash = ''
+      hist.replaceState(null, null, '/' + actual)
+    else
+      actual = hash || path
+      hist.replaceState(null, null, '/')
+      loc.hash = actual
 
   pushState = (name) ->
     if hasHistoryAPI
@@ -61,23 +61,38 @@ createHistoryWrapper = (win, loc, hist) ->
       notifyOnChange (-> loc.hash), 10, ->
         f(getCurrent())
 
-  { pushState, onPopState, getCurrent }
+  { pushState, onPopState, getCurrent, init }
 
 
 
 
 
-run = (win, doc, hist, loc) ->
+run = (win) ->
+  doc = win.document
+  hist = win.history
+  loc = win.location
 
-  { pushState, onPopState, getCurrent } = createHistoryWrapper(win, loc, hist)
+  { pushState, onPopState, getCurrent, init } = createHistoryWrapper(win, loc, hist)
+
+  init()
+  win.document.body.className = "show-" + getCurrent()
 
   loadScript = (url) ->
     node = doc.createElement('script')
     node.setAttribute('type', 'text/javascript')
     node.setAttribute('src', url)
     doc.body.insertBefore(node)
+  
+  loadStyles = (url) ->
+    node = doc.createElement('link')
+    node.setAttribute('rel', 'stylesheet')
+    node.setAttribute('type', 'text/css')
+    node.setAttribute('href', url)
+    doc.body.insertBefore(node)
 
   loadScriptOnce = memoize(loadScript)
+
+  loadStyles('/.code/transitions.css')
 
   animatedScrollTo = (y) ->
     $('html, body').animate({ scrollTop: y }, 300)
@@ -158,4 +173,4 @@ run = (win, doc, hist, loc) ->
 
 
 
-run(window, window.document, window.history, window.location)
+run(window)

@@ -1,0 +1,39 @@
+@import "/styles/mixins-generic.less";
+
+a {
+  .transition(all 0.3s);
+}
+
+body {
+  > div.nav {
+    .transition(width 0.5s);
+
+    > div {
+      > a.logo {
+        .transition(all 0.5s);
+      }
+      > h1 {
+        .transition(all 0.5s);
+      }
+      > div.contact-info {
+        .transition(all 0.5s);
+
+        > ul.social-links {
+          > li {
+            > span.tooltip {
+              .transition(all 0.3s);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > div.content {
+    .transition(all 0.3s);
+
+    > a.close {
+      .transition(all 0.3s);
+    }
+  }
+}

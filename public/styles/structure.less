@@ -2,7 +2,9 @@
 // Structure
 // --------------------------------------------
 
-@import "/styles/mixins.less";
+@import "/styles/reset.less";
+@import "/styles/mixins-generic.less";
+@import "/styles/mixins-app.less";
 
 
 
@@ -52,7 +54,7 @@ body {
   > div.nav {
     .dimensions(100%, 100%);
     .font-color(white);
-    .transition(width 0.5s);
+    // .transition(width 0.5s);
     background: @purple;
     left: 0;
     position: fixed;
@@ -88,7 +90,7 @@ body {
 
       > a.logo {
         .dimensions(85px, 85px);
-        .transition(all 0.5s);
+        // .transition(all 0.5s);
         display: block;
         float: right;
         margin: 110px 50px 0 0;
@@ -97,7 +99,7 @@ body {
         }
       }
       > h1 {
-        .transition(all 0.5s);
+        // .transition(all 0.5s);
         margin: 130px 0 90px 0;
         line-height: 1.2;
         @media @mobile {
@@ -109,7 +111,7 @@ body {
       }
       > div.contact-info {
         .font-color(rgba(255, 255, 255, 0.5));
-        .transition(all 0.5s);
+        // .transition(all 0.5s);
         bottom: 0;
         font-size: 0.7em;
         left: 20px;
@@ -138,7 +140,7 @@ body {
             > span.tooltip {
               .border-radius(3px 3px 3px 0px);
               .font-color(@purple);
-              .transition(all 0.3s);
+              // .transition(all 0.3s);
               background: @lightBlue;
               cursor: default;
               font-family: @baseFontFamily;
@@ -197,7 +199,7 @@ body {
 
   > div.content {
     .dimensions(auto, auto);
-    .transition(all 0.3s);
+    // .transition(all 0.3s);
     display: none;
     margin: 0 0 0 25%;
     position: relative;
@@ -206,7 +208,7 @@ body {
 
     > a.close {
       .font-color(@black, @gray);
-      .transition(all 0.3s);
+      // .transition(all 0.3s);
       border: none;
       outline: none;
       background: none;
@@ -455,3 +457,7 @@ body {
   }
 
 }
+
+
+
+@import "/styles/last.less";
