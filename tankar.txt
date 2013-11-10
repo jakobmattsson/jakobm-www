@@ -1,30 +1,32 @@
-- Om man resizar och går från mobile till full så borde den sätta scrollen på något bra sätt.
-  * Scrollen fuckas upp när det sker också. Den fastnar. Hur fixa?
-
 Några case att testa:
 - utan javascript
 - utan pushState (ie9)
 - med allting
+- ovanstående tre på en iphone
 
-Content:
+Must-have content:
 - Recommendations
 - Recommendation photos
-- Speaker quotes
 - Blog
 
-Övrigt:
+Must-have code:
+- Skriv script för att deploya (från ax till limpa)
+- Copy, design och update-länkar för gamla browsers
+- Skriv koden som sätter "old-browser"-flaggan på html-elementet
+- Testa i olika browsers (kolla att gamla fallbackar rätt och att nya ser korrekta ut)
+
+Nice-to-haves:
+- Bygg det hela utan opra. Watcha alla filer och kompilera om det som behövs. Framför allt för att få transitions att laddas in efteråt, men även för att göra en setup utan opra i största allmänhet!
 - Få bort jQuery (måste testa IE9 för detta)
-- Gör en enkel 404 sida också
 - Processa kodexempel i bloggposter på servern; inte i klienten
 - Gör en fallback-sida om man inte har en bra browser (lite i stil med 404an)
 - Om man anger en hash-url när browsern har history-api, då animerar den första sidvisningen (men det ska den inte!)
   * Funkar det om man väntar med att ladda cssen till javascriptet initierats?
   * Skulle kunna köra all css utan den som animerar
 
-- Bygg det hela utan opra. Watcha alla filer och kompilera om det som behövs. Framför allt för att få transitions att laddas in efteråt, men även för att göra en setup utan opra i största allmänhet!
-
 Erik:
 - 404-sida
 - är inte footern på landingssidan lite för nära botten?
 - siten "hoppar" lite när man växlar mellan två sidor där ena har "lite" innehåll och den andra har "mycket"
 - göra bolagsnamnen på "about" till länkar
+- måste man ha normalize-css?
