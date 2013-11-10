@@ -1,3 +1,14 @@
+.fallback {
+  display: none;
+}
+html.old-browser body > * {
+  display: none;
+}
+html.old-browser body > .fallback {
+  display: block;
+}
+
+
 .collapse-nav() {
   > div.nav {
     @media @laptop, @tablet {
