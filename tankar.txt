@@ -1,9 +1,16 @@
 - Om man resizar och går från mobile till full så borde den sätta scrollen på något bra sätt.
+  * Scrollen fuckas upp när det sker också. Den fastnar. Hur fixa?
 
 Några case att testa:
 - utan javascript
 - utan pushState (ie9)
 - med allting
+
+Content:
+- Recommendations
+- Recommendation photos
+- Speaker quotes
+- Blog
 
 Övrigt:
 - Få bort jQuery (måste testa IE9 för detta)
@@ -20,3 +27,4 @@ Erik:
 - 404-sida
 - är inte footern på landingssidan lite för nära botten?
 - siten "hoppar" lite när man växlar mellan två sidor där ena har "lite" innehåll och den andra har "mycket"
+- göra bolagsnamnen på "about" till länkar
