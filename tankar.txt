@@ -28,5 +28,5 @@ Erik:
 - 404-sida
 - är inte footern på landingssidan lite för nära botten?
 - siten "hoppar" lite när man växlar mellan två sidor där ena har "lite" innehåll och den andra har "mycket"
-- göra bolagsnamnen på "about" till länkar
+- ska man styla bolagsnamnen på "about" (som nu är länkar) på något sätt?
 - måste man ha normalize-css?

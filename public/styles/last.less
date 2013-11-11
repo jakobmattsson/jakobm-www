@@ -1,12 +1,20 @@
 .fallback {
   display: none;
 }
-html.old-browser body > * {
-  display: none;
+html.old-browser body {
+  > * {
+    display: none;
+  }
+  > .fallback {
+    display: block;
+
+    > div {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+  }
 }
-html.old-browser body > .fallback {
-  display: block;
-}
+
 
 
 .collapse-nav() {
