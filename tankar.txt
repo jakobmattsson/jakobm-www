@@ -11,8 +11,8 @@ Must-have content:
 
 Must-have code:
 - Skriv script för att deploya (från ax till limpa)
-- Copy, design och update-länkar för gamla browsers
-- Skriv koden som sätter "old-browser"-flaggan på html-elementet
+- Text, design och update-länkar för gamla browsers
+- Skriv koden som sätter "old-browser"-flaggan på html-elementet (kolla html5boilerplate)
 - Testa i olika browsers (kolla att gamla fallbackar rätt och att nya ser korrekta ut)
 
 Nice-to-haves:
