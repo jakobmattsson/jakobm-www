@@ -5,12 +5,6 @@ memoize = (f) ->
       memory[arg] = f(arg)
     memory[arg] = true
 
-prevented = (f) ->
-  (e) ->
-    e.preventDefault()
-    f.apply(this, arguments)
-    false
-
 pageClassFromUrl = (url) ->
   url.slice(1)
 
@@ -64,6 +58,13 @@ createHistoryWrapper = (win, loc, hist) ->
   { pushState, onPopState, getCurrent, init }
 
 
+# this should be a parameter to the single-page-viewer module
+rootPageName = 'home'
+
+makeBodyClassName = (pageName) ->
+  'show-' + (pageName || rootPageName)
+
+
 
 
 
@@ -75,7 +76,7 @@ run = (win) ->
   { pushState, onPopState, getCurrent, init } = createHistoryWrapper(win, loc, hist)
 
   init()
-  win.document.body.className = "show-" + getCurrent()
+  doc.body.className = makeBodyClassName(getCurrent())
 
   loadScript = (url) ->
     node = doc.createElement('script')
@@ -116,23 +117,17 @@ run = (win) ->
 
 
   showPageMarkup = (name) ->
-    newClass = 'show-' + (name || 'home')
+    newClass = makeBodyClassName(name)
     oldClass = doc.body.className
     changed = newClass != oldClass
 
-    doc.body.className = newClass
+    doc.body.className = makeBodyClassName(name)
 
-    if name && changed && oldClass != 'show-home'
+    if changed && name
       $('.' + name).css({ "padding-top": 150, opacity: 0 }).animate({ "padding-top": 130, opacity: 1 }, 400)
 
     if name == 'speaker'
       loadScriptOnce('//speakerdeck.com/assets/embed.js')
-
-  interceptClickHandler = (pattern, handler) ->
-    nodes = doc.querySelectorAll(pattern)
-    for node in nodes
-      node.addEventListener('click', prevented(handler))
-
 
   isMobileSized = ->
     win.innerWidth <= 760
@@ -165,17 +160,17 @@ run = (win) ->
   win.addEventListener 'resize', ->
     showPage(getCurrent(), false)
 
-  interceptClickHandler 'a.close, .nav a.logo', ->
-    setPage()
+  do ->
+    for node in doc.querySelectorAll('a')
+      node.addEventListener 'click', (e) ->
+        href = @getAttribute('href')
 
-  interceptClickHandler '.nav p a', ->
-    href = @getAttribute('href')
-    page = pageClassFromUrl(href)
-    setPage(page)
-
-  interceptClickHandler '.scroll-to-top', ->
-    setPage()
-
-
+        if href[0] == '/'
+          page = pageClassFromUrl(href)
+          setPage(page)
+          e.preventDefault()
+          false
+        else
+          true
 
 run(window)

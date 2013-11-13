@@ -1,19 +1,31 @@
-express = require 'express'
-createPage = require './createPage'
+fs = require 'fs'
+connect = require 'connect'
 
-app = express()
-app.use express.static(__dirname + '/../public')
+port = 8282
 
-createPage.pages.forEach (page) ->
-  app.get page, (req, res, next) ->
-    createPage.build page, (err, result) ->
-      return console.log(err) if err?
-      res.setHeader('Content-Type', 'text/html')
-      res.setHeader('Content-Length', Buffer.byteLength(result))
-      res.end(result)
+originalLookup = connect.mime.lookup.bind(connect.mime)
 
-app.get '*', (req, res, next) ->
-  res.end('404')
+connect.mime.lookup = (file) ->
+  hasExtension = file.split('/').slice(-1)[0].indexOf('.') != -1
+  if hasExtension
+    originalLookup.call(this, file)
+  else
+    'text/html'
 
-app.listen(8200)
-console.log "Running server on port 8200..."
+app = connect()
+
+app.use connect.static(__dirname + '/../tmp/output')
+
+app.use (req, res, next) ->
+  if req.url == '/'
+    res.end(fs.readFileSync(__dirname + '/../tmp/output/home'))
+  else
+    next()
+
+app.use (req, res) ->
+  res.statusCode = 404
+  res.end(fs.readFileSync(__dirname + '/../tmp/output/404.html'))
+
+app.listen(port)
+
+console.log "Listening to port #{port}..."

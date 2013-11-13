@@ -26,19 +26,6 @@ Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pu
 
 Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes <a href="">dessert gummies</a> marshmallow. Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes dessert gummies marshmallow.
 
-Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes <a href="">dessert gummies</a> marshmallow. Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes dessert gummies marshmallow.
-
-<pre class="prettyprint">if (typeof Object.create !== 'function') {
-  Object.create = function (o) {
-    function F() {}
-    F.prototype = o;
-    return new F();
-  };
-}
-newObject = Object.create(oldObject);</pre>
-
-Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes <a href="">dessert gummies</a> marshmallow. Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes dessert gummies marshmallow.
-
     if (typeof Object.create !== 'function') {
       Object.create = function (o) {
         function F() {}
@@ -51,4 +38,3 @@ Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pu
 Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes <a href="">dessert gummies</a> marshmallow. Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes dessert gummies marshmallow.
 
 Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes <a href="">dessert gummies</a> marshmallow. Pudding candy canes wypas candy carrot cake. Pastry wypas tiramisu chocolate. Pudding pastry brownie cupcake soufflé. Macaroon muffin danish dessert jujubes dessert gummies marshmallow.
-
