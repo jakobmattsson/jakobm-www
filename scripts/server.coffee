@@ -24,6 +24,7 @@ app.use (req, res, next) ->
 
 app.use (req, res) ->
   res.statusCode = 404
+  res.setHeader('Content-Type', 'text/html');
   res.end(fs.readFileSync(__dirname + '/../tmp/output/404.html'))
 
 app.listen(port)
