@@ -5,18 +5,21 @@ Några case att testa:
 - ovanstående tre på en iphone
 
 Must-have content:
-- Recommendations
-- Recommendation photos
-- Blog posts
+- John Sjölander
+- Erik Frisk
+- Erik Göransson
+- Vilhelm Josander
+- Rasmus Hyltegård (be också om en bättre bild)
+- Alexandra Bylund (om BÅDE arkitektur och rekrytering; framför allt rekrytering)
+- Magnus Stein
+- Erik Nilsen
 
 Must-have code:
 - Skriv script för att deploya (från ax till limpa) - i princip klart, förutom bucketful
-- Text, design och update-länkar för gamla browsers
-- Skriv koden som sätter "old-browser"-flaggan på html-elementet (kolla html5boilerplate)
 - Testa i olika browsers (kolla att gamla fallbackar rätt och att nya ser korrekta ut)
 
 Nice-to-haves:
-- Snyggare 404-sida - bör skriva någon text som leder till en till det man letar efter, framför allt bloggen
+- Google analytics!
 - Bygg det hela utan opra. Watcha alla filer och kompilera om det som behövs automatiskt.
 - Få bort jQuery (måste testa IE9 för detta)
 
