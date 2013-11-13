@@ -38,6 +38,7 @@
     "coffee-script": "^1.6.2",
     "less": "^1.4.2",
     "opra": "^0.18.0",
+    "marked": "^0.2.10",
     "bower": "^0.9.2",
     "bucketful-loopia": "^0.1.0",
     "bucketful": "^0.14.0"
