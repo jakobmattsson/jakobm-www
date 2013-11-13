@@ -1,0 +1,1 @@
+> Code is not an asset, it’s a liability. You want as little code as possible to solve the problem.
