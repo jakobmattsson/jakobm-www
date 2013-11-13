@@ -1,1 +1,1 @@
-<img src="/blog-posts/2011-11-08 New business cards/burt-business-cards.jp">
+<img src="/blog-posts/2011-11-08 New business cards/burt-business-cards.jpg">
