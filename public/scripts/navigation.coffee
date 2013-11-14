@@ -82,6 +82,7 @@ run = (win) ->
     node = doc.createElement('script')
     node.setAttribute('type', 'text/javascript')
     node.setAttribute('src', url)
+    node.async = true
     doc.body.insertBefore(node)
   
   loadStyles = (url) ->
@@ -94,6 +95,36 @@ run = (win) ->
   loadScriptOnce = memoize(loadScript)
 
   loadStyles('/.code/transitions.css')
+
+  loadDisqus = do ->
+    loaded = false
+    (parentNode, disqusIdentifier, disqusTitle) ->
+
+      disqusUrl = 'http://www.jakobmattsson.se/' + disqusIdentifier
+
+      if loaded
+        disqusNode = doc.getElementById('disqus_thread')
+        parentNode.appendChild(disqusNode)
+
+        DISQUS.reset({
+          reload: true
+          config: ->
+            @page.identifier = disqusIdentifier
+            @page.url = disqusUrl
+            @page.title = disqusTitle
+        })
+      else
+        disqusNode = doc.createElement('div')
+        disqusNode.id = 'disqus_thread'
+        parentNode.appendChild(disqusNode)
+
+        win.disqus_shortname = 'jakobm'
+        win.disqus_identifier = disqusIdentifier
+        win.disqus_title = disqusTitle
+        win.disqus_url = disqusUrl
+
+        loadScript('//' + win.disqus_shortname + '.disqus.com/embed.js')
+        loaded = true
 
   animatedScrollTo = (y) ->
     $('html, body').animate({ scrollTop: y }, 300)
@@ -128,6 +159,11 @@ run = (win) ->
 
     if name == 'speaker'
       loadScriptOnce('//speakerdeck.com/assets/embed.js')
+
+    pageElement = doc.getElementsByClassName(name)[0]
+    if pageElement?.className.slice(0, 9) == 'blog-post'
+      blogPostTitle = pageElement.querySelector('header h2')
+      loadDisqus(pageElement, name, blogPostTitle)
 
   isMobileSized = ->
     win.innerWidth <= 760
