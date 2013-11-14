@@ -1,6 +1,6 @@
 Do you have a JavaScript-program that:
 
-- Sets element.innerHTML (because it's a very performant way to manipulate the DOM)
+- Sets `element.innerHTML` (because it's a very performant way to manipulate the DOM)
 - Has deferred scripts contained in strings (because you manipulate 3rd party string out of your control)
 - Requires IE-support (because the world is a sad place)
 
