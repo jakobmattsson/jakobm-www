@@ -18,7 +18,10 @@ notifyOnChange = (f, delay, callback) ->
 
 
 
-createHistoryWrapper = (win, loc, hist) ->
+createHistoryWrapper = (win) ->
+
+  hist = win.history
+  loc = win.location
 
   hasHistoryAPI = hist?
 

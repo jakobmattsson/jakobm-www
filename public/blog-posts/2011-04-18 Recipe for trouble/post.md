@@ -16,6 +16,6 @@ Now, the div-tag is not even a part of the DOM, yet IE insist on actually runnin
 
 **It runs a script that is not even part of the DOM!**
 
-It’s like an eval in disguise! I discovered this by breaking a site (imagine what would happen if you replaced the call to alert with `document.write` for example) and would like to save future generations some tears.
+It’s like an `eval` in disguise! I discovered this by breaking a site (imagine what would happen if you replaced the call to alert with `document.write` for example) and would like to save future generations some tears.
 
-So, remember: A very performant and useful property meets two evils and an even greater evil is produced.
+So, remember: a very performant and useful property meets two evils and an even greater evil is produced.
