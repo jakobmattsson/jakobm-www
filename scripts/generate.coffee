@@ -6,6 +6,7 @@ marked = require 'marked'
 async = require 'async'
 XDate = require 'xdate'
 mkdirp = require 'mkdirp'
+_ = require 'underscore'
 
 blogRoot = 'public/blog-posts'
 
@@ -38,6 +39,9 @@ getBlogPosts = ->
     fs.lstatSync(path.join(blogRoot, name)).isDirectory()
 
 
+indentLines = (html, indent) ->
+  spaces = _(indent).times((x) -> '  ').join('')
+  html.split('\n').map((x) -> '\n' + spaces + x).join('')
 
 
 insertBlogPosts = (data, callback) ->
@@ -70,7 +74,7 @@ insertBlogPosts = (data, callback) ->
         </div>
       """
   , propagate callback, (mid) ->
-    callback(null, before + mid.reverse().join('') + after)
+    callback(null, before.trim() + '\n\n' + mid.reverse().join('\n\n') + '\n\n' + '  ' + after)
 
 
 
@@ -96,11 +100,14 @@ insertBlogList = (data, callback) ->
             <span class="post-date">#{date}</span>
             <h2><a href="#{url}">#{title}</a></h2>
           </header>
-          <section>#{summary}</section>
+          <section>
+            #{summary.trim()}
+          </section>
         </article>
       """
   , propagate callback, (mid) ->
-    callback(null, before + mid.reverse().join('') + after)
+    lines = indentLines(mid.reverse().join('\n'), 3)
+    callback(null, before + lines + after)
 
 extendCss = ->
   styleFile = 'tmp/output/.code/styles.css'
