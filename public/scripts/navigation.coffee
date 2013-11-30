@@ -76,7 +76,7 @@ run = (win) ->
   hist = win.history
   loc = win.location
 
-  { pushState, onPopState, getCurrent, init } = createHistoryWrapper(win, loc, hist)
+  { pushState, onPopState, getCurrent, init } = createHistoryWrapper(win)
 
   init()
   doc.body.className = makeBodyClassName(getCurrent())
@@ -163,10 +163,10 @@ run = (win) ->
     if name == 'speaker'
       loadScriptOnce('//speakerdeck.com/assets/embed.js')
 
-    pageElement = doc.getElementsByClassName(name)[0]
-    if pageElement?.className.slice(0, 9) == 'blog-post'
-      blogPostTitle = pageElement.querySelector('header h2')
-      loadDisqus(pageElement, name, blogPostTitle)
+    #pageElement = doc.getElementsByClassName(name)[0]
+    #if pageElement?.className.slice(0, 9) == 'blog-post'
+    #  blogPostTitle = pageElement.querySelector('header h2')
+    #  loadDisqus(pageElement, name, blogPostTitle)
 
   isMobileSized = ->
     win.innerWidth <= 760
