@@ -4,24 +4,31 @@ Några case att testa:
 - med allting
 - ovanstående tre på en iphone
 
-Must-have content:
-- John Sjölander
-- Erik Frisk
-- Erik Göransson
-- Vilhelm Josander
-- Rasmus Hyltegård (be också om en bättre bild)
-- Alexandra Bylund (om BÅDE arkitektur och rekrytering; framför allt rekrytering)
+Referenser (kan jag klara mig utan några av dessa så länge?):
 - Magnus Stein
-- Erik Nilsen
+- Fredrik Borg
+- (Vilhelm Josander)
 
 Must-have code:
-- Skriv script för att deploya (från ax till limpa) - i princip klart, förutom bucketful
+- Skriv script för att deploya (från ax till limpa) - i princip klart, förutom bucketful (behöver internet för att testa)
 - Testa i olika browsers (kolla att gamla fallbackar rätt och att nya ser korrekta ut)
 
 Nice-to-haves:
 - Google analytics!
 - Bygg det hela utan opra. Watcha alla filer och kompilera om det som behövs automatiskt.
 - Få bort jQuery (måste testa IE9 för detta)
+- RSS till bloggen
+- Disqus till bloggen
+- Borde sätta "title" på webbsidan dynamiskt
+- Vad kan göras för att sökmotoroptimera?
+
+Julias feedback:
+- Borde finnas en bild på mig tidigare i flödet
+- Måste separera referenserna från min egen copy på något tydligare sätt. Man ska inte tro att de bilderna är på mig. Tydligare narrative.
+
+Ändra:
+- En bild på mig när jag sitter och programmerar under "coder".
+- En bild när jag föreläser på "train coders".
 
 Erik:
 - Skulle gärna ha en lista över alla konferenser jag pratat på. 
@@ -31,3 +38,10 @@ Erik:
   - borde fixa detta i samband med att vi kollar på hur sidan ser ut på en stor skärm
 - ska man styla bolagsnamnen på "about" (som nu är länkar) på något sätt?
 - måste man ha normalize-css?
+- favicon
+
+Fler ställen på webben:
+- facebook
+- sc2rank
+- last.fm
+- tumblr (stäng ner?)
