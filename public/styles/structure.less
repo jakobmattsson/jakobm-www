@@ -113,12 +113,13 @@ body {
 
     > div {
       height: 100%;
-      margin: 0 auto;
-      max-width: @contentWidth;
+      margin: 0 25px 0 auto;
+      max-width: 350px;
       overflow: hidden;
       padding: 0 20px;
       position: relative;
       text-align: left;
+      float: right;
 
       @media @smallHeight {
         overflow: auto;
@@ -149,7 +150,7 @@ body {
       > div.contact-info {
         .font-color(rgba(255, 255, 255, 0.5));
         // .transition(all 0.5s);
-        bottom: 0;
+        bottom: 15px;
         font-size: 0.7em;
         left: 20px;
         max-width: @contentWidth;
@@ -247,6 +248,9 @@ body.show-home {
       width: 100%;
       min-width: 260px;
       > div {
+        float: none;
+        margin: 0 auto;
+        max-width: @contentWidth;
         font-size: 1em;
         > a.logo { margin: 110px 50px 0 0; }
         > h1 { margin: 130px 0 90px 0; }
@@ -366,7 +370,7 @@ body.show-home {
       position: relative;
 
       a {
-        color: black;
+        color: #3EA15A;
       }
 
       &::before {
