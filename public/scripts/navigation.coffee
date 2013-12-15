@@ -163,6 +163,8 @@ run = (win) ->
     if name == 'speaker'
       loadScriptOnce('//speakerdeck.com/assets/embed.js')
 
+    window.analytics.page(name)
+
     #pageElement = doc.getElementsByClassName(name)[0]
     #if pageElement?.className.slice(0, 9) == 'blog-post'
     #  blogPostTitle = pageElement.querySelector('header h2')
@@ -198,6 +200,18 @@ run = (win) ->
 
   win.addEventListener 'resize', ->
     showPage(getCurrent(), false)
+
+  $('.social-links a').each ->
+    window.analytics.trackLink(@, 'Clicked social link', { target: $(@).attr('href') })
+
+  $('.mini-cv a').each ->
+    window.analytics.trackLink(@, 'Clicked employee link', { target: $(@).attr('href') })
+
+  $('a.close').each ->
+    window.analytics.trackLink(@, 'Clicked close button', {})
+
+  $('a.logo').each ->
+    window.analytics.trackLink(@, 'Clicked bowtie button', {})
 
   do ->
     for node in doc.querySelectorAll('a')
