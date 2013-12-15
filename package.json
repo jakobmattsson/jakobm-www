@@ -21,7 +21,7 @@
   "opra": {
     "root": "public",
     "targetDir": "tmp/output",
-    "extraFiles": ["img", "fonts", ".code", "blog-posts", "styles/old-browser.css"],
+    "extraFiles": ["img", "fonts", ".code", "blog-posts", "styles/old-browser.css", "favicon.ico"],
     "opraFiles": {
       "404.html": {
         "concat": true,
