@@ -6,6 +6,7 @@ marked = require 'marked'
 async = require 'async'
 XDate = require 'xdate'
 mkdirp = require 'mkdirp'
+glob = require 'glob'
 _ = require 'underscore'
 
 blogRoot = 'public/blog-posts'
@@ -122,8 +123,8 @@ extendCss = ->
 
 propagate = (onErr, onSucc) -> (err, rest...) -> if err? then onErr(err) else onSucc(rest...)
 
-build = (callback) ->
-  fs.readFile 'tmp/output/source.html', 'utf8', propagate callback, (data) ->
+build = (source, callback) ->
+  fs.readFile source, 'utf8', propagate callback, (data) ->
     extendCss()
     insertBlogList data, propagate callback, (newData) ->
       insertBlogPosts(newData, callback)
@@ -144,18 +145,32 @@ writeFilep = (filename, data, callback) ->
 
 
 
+deleteFiles = (pattern, callback) ->
+  glob pattern, {}, propagate callback, (files) ->
+    files.forEach (f) ->
+      fs.unlinkSync(f)
+    callback()
 
 
+run = (callback) ->
+  build 'tmp/output/source.html', propagate callback, (result) ->
+    async.parallel [
+      (callback) ->
+        fs.unlinkSync('tmp/output/source.html')
+        callback()
+    ,
+      (callback) -> deleteFiles('tmp/output/blog-posts/**/*.md', callback)
+    ,
+      (callback) -> deleteFiles('tmp/output/**/.DS_Store', callback)
+    ,
+      (callback) ->
+        async.forEachSeries pages(), (page, callback) ->
+          name = page.slice(1) || 'home'
+          moddedResult = result.replace(/<body[^>]*>/, '<body class="show-' + name + '">')
+          writeFilep("tmp/output/#{name}", moddedResult, callback)
+        , callback
+    ]
 
 
-async.parallel [
-  (callback) ->
-    build (err, result) ->
-      async.forEachSeries pages(), (page, callback) ->
-        name = page.slice(1) || 'home'
-        moddedResult = result.replace(/<body[^>]*>/, '<body class="show-' + name + '">')
-        writeFilep("tmp/output/#{name}", moddedResult, callback)
-    , callback
-], (err) ->
-  fs.unlinkSync('tmp/output/source.html')
+run (err) ->
   console.log(err) if err?
