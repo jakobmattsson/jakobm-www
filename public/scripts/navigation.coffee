@@ -1,3 +1,7 @@
+toArray = (arrayLike) ->
+  for node in arrayLike
+    node
+
 memoize = (f) ->
   memory = {}
   (arg) ->
@@ -15,6 +19,17 @@ notifyOnChange = (f, delay, callback) ->
     callback() if newValue != oldValue
     oldValue = newValue
   , delay
+
+
+
+analyticsObj = do ->
+  if window.location.hostname == 'localhost' then {
+    trackLink: ->
+    track: (args...) ->
+      console.log("Track", args...)
+    page: (args...) ->
+      console.log("Page", args...)
+  } else window.analytics
 
 
 
@@ -163,7 +178,7 @@ run = (win) ->
     if name == 'speaker'
       loadScriptOnce('//speakerdeck.com/assets/embed.js')
 
-    window.analytics.page(name)
+    analyticsObj.page(name)
 
     #pageElement = doc.getElementsByClassName(name)[0]
     #if pageElement?.className.slice(0, 9) == 'blog-post'
@@ -202,28 +217,26 @@ run = (win) ->
     showPage(getCurrent(), false)
 
   $('.social-links a').each ->
-    window.analytics.trackLink(@, 'Clicked social link', { target: $(@).attr('href') })
+    analyticsObj.trackLink(@, 'Clicked social link', { target: $(@).attr('href') })
 
   $('.mini-cv a').each ->
-    window.analytics.trackLink(@, 'Clicked employee link', { target: $(@).attr('href') })
+    analyticsObj.trackLink(@, 'Clicked employee link', { target: $(@).attr('href') })
 
-  $('a.close').each ->
-    window.analytics.trackLink(@, 'Clicked close button', {})
+  toArray(doc.querySelectorAll('a')).forEach (node) ->
+    node.addEventListener 'click', (e) ->
+      href = @getAttribute('href')
+      return true if href[0] != '/'
 
-  $('a.logo').each ->
-    window.analytics.trackLink(@, 'Clicked bowtie button', {})
+      className = node.className
 
-  do ->
-    for node in doc.querySelectorAll('a')
-      node.addEventListener 'click', (e) ->
-        href = @getAttribute('href')
+      if className == 'close'
+        analyticsObj.track('Clicked close button')
+      else if className == 'logo'
+        analyticsObj.track('Clicked bowtie button')
 
-        if href[0] == '/'
-          page = pageClassFromUrl(href)
-          setPage(page)
-          e.preventDefault()
-          false
-        else
-          true
+      page = pageClassFromUrl(href)
+      setPage(page)
+      e.preventDefault()
+      false
 
 run(window)
