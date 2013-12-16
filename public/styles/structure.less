@@ -111,15 +111,20 @@ body {
       float: left;
     }
 
+
     > div {
       height: 100%;
-      margin: 0 25px 0 auto;
-      max-width: 350px;
+      margin: 0 auto;
       overflow: hidden;
       padding: 0 20px;
       position: relative;
       text-align: left;
-      float: right;
+
+      @media @laptop {
+        float: right;
+        margin: 0 25px 0 auto;
+        max-width: 350px;
+      }
 
       @media @smallHeight {
         overflow: auto;
@@ -237,6 +242,7 @@ body {
     }
   }
 }
+
 
 body.show-home {
   > div.content {
