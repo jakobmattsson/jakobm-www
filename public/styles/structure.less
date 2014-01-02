@@ -33,7 +33,7 @@ body {
     font-size: 0.6em;
     font-weight: normal;
     line-height: 1.1;
-    opacity: 0.4;
+    /*opacity: 0.4;*/
     padding: 0.2em 0.5em 0.8em;
     position: fixed;
     right: 5px;
@@ -227,6 +227,10 @@ body {
 
 body {
   > div.nav {
+    @media @mobile {
+      display: none;
+    }
+
     @media @laptop, @tablet {
       width: 25%;
       min-width: 260px;
@@ -250,6 +254,10 @@ body.show-home {
   }
 
   > div.nav {
+    @media @mobile {
+      display: block;
+    }
+
     @media @laptop, @tablet {
       width: 100%;
       min-width: 260px;

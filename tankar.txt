@@ -2,33 +2,47 @@ Några case att testa:
 - utan javascript
 - utan pushState (ie9)
 - med allting
-- ovanstående tre på en iphone
+- ovanstående tre på en iphone (i båda vinklarna), cinema screen och ipad (i båda vinklarna)
+- Testa i olika browsers (kolla att gamla fallbackar rätt och att nya ser korrekta ut)
+
+
+
 
 Must-have code:
 - Måste sätta content-type html på filerna som saknar typ (detta görs enkelt i bucketful - utöka och släpp ny version!)
-- Testa i olika browsers (kolla att gamla fallbackar rätt och att nya ser korrekta ut)
-- Fixa jakobmattsson.se och jakobm.com (jakobm håller på att propagera - sätt jakobmattsson till en redirect)
-- Aktivera några bra tjänst under segment.io
+  - exports.putFile ====>>> ContentType: path.extname(filename) == '' ? 'text/html' : mime.lookup(filename),
+- Ta bort animationerna på navigationen i mobile
+
+
+
+Must-haves:
+- Gå igenom copy. Hur göra? Vem bedömer?
+- På speaker-sidan, introducera citaten lite bättre (typ "här är lite saker folk har sagt i surveyn, efter presentationen etc")
+- Ändra strukturen för telefoner? Så att man inte har "startsidan" på toppen av varje undersida.
+  - ta bort den lilla animationen som fadar in texten på nya sidor
+  - ta bort huvudmenyn från toppen. Man får navigera fram och tillbaka istället (och "back to top")
+  - avståendet mellan olika quotes måste vara större
+
+
+
+
 
 Nice-to-haves (Jag):
 - Referens av Magnus Stein
 - RSS till bloggen
-- Disqus till bloggen
 - Bygg det hela utan opra. Watcha alla filer och kompilera om det som behövs automatiskt.
 - Få bort jQuery (måste testa IE9 för detta)
 - Borde sätta "title" på webbsidan dynamiskt
 - Vad kan göras för att sökmotoroptimera?
+- Aktivera disqus (mer eller mindre klart; kolla bara att det blir bra i praktiken)
 - En bild när jag föreläser på "train coders".
-- Länka twitter-citaten på "speaker" till personerna som sagt det?
+- Skulle gärna ha en lista över alla konferenser jag pratat på.
 
 Nice-to-haves (Erik):
-- Skulle gärna ha en lista över alla konferenser jag pratat på. 
-- är inte footern på landingssidan lite för nära botten?
 - siten "hoppar" lite när man växlar mellan två sidor där ena har scrollbar och den andra inte.
   - måste bero på något som är procentuellt.
   - borde fixa detta i samband med att vi kollar på hur sidan ser ut på en stor skärm
-- ska man styla bolagsnamnen på "about" (som nu är länkar) på något sätt?
-- favicon
+  - alternativt sätta always-visible scrollbars
 
 Fler ställen på webben:
 - facebook
@@ -37,17 +51,3 @@ Fler ställen på webben:
 - tumblr (stäng ner?)
 - npm
 - lanyrd
-
-
-
-
-
-
-
-
-Random (sorrtera till rätt kategori)
-- Om man kör i låg upplösning, ta bort den lilla animationen som fadar in texten på nya sidor
-- Om man kör i låg upplösning, ta bort huvudmenyn från toppen. Man får navigera fram och tillbaka istället (och "back to top")
-- Om man kör i låg upplösning, avståendet mellan olika quotes måste vara större
-- Verkar som att sidan laddar om när man klickar på krysset eller bowtien. kolla varför.
-- Gå igenom copy. Hur göra? Vem bedömer?

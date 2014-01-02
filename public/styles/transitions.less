@@ -1,41 +1,48 @@
 @import "/styles/mixins-generic.less";
+@import "/styles/variables.less";
 
+/*
 a {
-  .transition(all 0.3s);
+  @media @laptop, @tablet {
+    .transition(all 0.3s);
+  }
 }
 
 body {
-  > div.nav {
-    .transition(width 0.5s);
+  @media @laptop, @tablet {
+    > div.nav {
+      .transition(width 0.5s);
 
-    > div {
-      // .transition(width 0.5s);
+      > div {
+        // .transition(width 0.5s);
 
-      > a.logo {
-        .transition(all 0.5s);
-      }
-      > h1 {
-        .transition(all 0.5s);
-      }
-      > div.contact-info {
-        .transition(all 0.5s);
+        > a.logo {
+          .transition(all 0.5s);
+        }
+        > h1 {
+          .transition(all 0.5s);
+        }
+        > div.contact-info {
+          .transition(all 0.5s);
 
-        > ul.social-links {
-          > li {
-            > span.tooltip {
-              .transition(all 0.3s);
+          > ul.social-links {
+            > li {
+              > span.tooltip {
+                .transition(all 0.3s);
+              }
             }
           }
         }
       }
     }
-  }
 
-  > div.content {
-    .transition(all 0.3s);
-
-    > a.close {
+    > div.content {
       .transition(all 0.3s);
+
+      > a.close {
+        .transition(all 0.3s);
+      }
     }
   }
 }
+*/

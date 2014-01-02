@@ -23,7 +23,7 @@ notifyOnChange = (f, delay, callback) ->
 
 
 analyticsObj = do ->
-  if window.location.hostname == 'localhost' then {
+  if window.location.hostname == 'localhost' || true then {
     trackLink: ->
     track: (args...) ->
       console.log("Track", args...)
@@ -112,7 +112,7 @@ run = (win) ->
 
   loadScriptOnce = memoize(loadScript)
 
-  loadStyles('/.code/transitions.css')
+  # loadStyles('/.code/transitions.css')
 
   loadDisqus = do ->
     loaded = false
@@ -189,17 +189,10 @@ run = (win) ->
     win.innerWidth <= 760
 
   showPage = (name = '') ->
-    if isMobileSized()
-      animate = name != getCurrent()
-      if !name
-        scrollTo({ y: 0, animate })
-      else
-        showPageMarkup(name)
-        pageScrollPos = getNavHeight()
-        scrollTo({ y: pageScrollPos, animate })
-    else
-      showPageMarkup(name)
-      scrollTo({ y: 0, animate: false })
+    showScrollToTop = isMobileSized() && name != 'home' && name != ''
+    toggleScrollButton(showScrollToTop)
+    showPageMarkup(name)
+    scrollTo({ y: 0, animate: false })
 
   setPage = (name = '') ->
     showPage(name)
@@ -208,13 +201,13 @@ run = (win) ->
   onPopState (path) ->
     showPage(path)
 
-  win.addEventListener 'scroll', ->
-    isScrolledDown = getScrollLocation() > getNavHeight() - 10
-    showScrollToTop = isMobileSized() && isScrolledDown
-    toggleScrollButton(showScrollToTop)
+  #win.addEventListener 'scroll', ->
+  #  isScrolledDown = getScrollLocation() > getNavHeight() - 10
+  #  showScrollToTop = isMobileSized() && isScrolledDown
+  #  toggleScrollButton(showScrollToTop)
 
-  win.addEventListener 'resize', ->
-    showPage(getCurrent(), false)
+  #win.addEventListener 'resize', ->
+  #  showPage(getCurrent())
 
   $('.social-links a').each ->
     analyticsObj.trackLink(@, 'Clicked social link', { target: $(@).attr('href') })
