@@ -23,7 +23,7 @@ notifyOnChange = (f, delay, callback) ->
 
 
 analyticsObj = do ->
-  if window.location.hostname == 'localhost' || true then {
+  if window.location.hostname == 'localhost' then {
     trackLink: ->
     track: (args...) ->
       console.log("Track", args...)
@@ -112,7 +112,7 @@ run = (win) ->
 
   loadScriptOnce = memoize(loadScript)
 
-  # loadStyles('/.code/transitions.css')
+  loadStyles('/.code/transitions.css')
 
   loadDisqus = do ->
     loaded = false
@@ -172,7 +172,7 @@ run = (win) ->
 
     doc.body.className = makeBodyClassName(name)
 
-    if changed && name
+    if changed && name && !isMobileSized()
       $('.' + name).css({ "padding-top": 150, opacity: 0 }).animate({ "padding-top": 130, opacity: 1 }, 400)
 
     if name == 'speaker'
