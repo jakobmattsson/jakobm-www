@@ -1,0 +1,68 @@
+.about {
+
+  .page();
+
+  > img {
+    .jakob-image(300px);
+  }
+
+  > ul.mini-cv {
+    list-style: none;
+    margin: 50px 0;
+    padding: 0 0 0 70px;
+    @media @mobile { padding: 0 0 0 20px; }
+    > li {
+      border-left: 8px solid @green;
+      padding: 0 0 40px 30px;
+      position: relative;
+
+      a {
+        color: #3EA15A;
+      }
+
+      &::before {
+        @circleSize: 30px;
+        .dimensions(@circleSize, @circleSize);
+        .border-radius(@circleSize);
+        content: '';
+        display: block;
+        position: absolute;
+        border: 8px solid @green;
+        background: @bodyBackgroundColor;
+        left: -27px;
+        top: -5px;
+      }
+    }
+  }
+
+  > ul.social-links {
+    margin: 0;
+    padding: 0 0 0 60px;
+    font-size: 1.3em;
+    list-style: none;
+    @media @mobile { padding: 0 0 0 20px; }
+    > li {
+      padding: 0 0 0.3em;
+      > a {
+        display: inline-block;
+        font-family: @baseFontFamily;
+        font-weight: normal;
+        padding: 0 0 0 2em;
+        position: relative;
+        > span {
+          display: block;
+          font-family: @altFontFamily;
+          font-size: 1.3em;
+          left: 0px;
+          line-height: 0;
+          position: absolute;
+          top: 0px;
+          &.speaker-deck {
+            .speaker-deck-icon-large(@bodyBackgroundColor);
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+
+.speaker {
+
+  .page();
+
+  > div.image {
+    .border-radius(4px);
+    overflow: hidden;
+    @media @mobile {
+      .border-radius(0);
+      margin: 0 -20px;
+    }
+    > img.wide {
+      .dimensions(100%, auto);
+      display: block;
+      @media @mobile {
+        .dimensions(170%, auto);
+      }
+    }
+  }
+
+  > h2 {
+    margin-top: 60px;
+  }
+
+  > blockquote {
+    .reference-quote-short();
+  }
+
+}
+
