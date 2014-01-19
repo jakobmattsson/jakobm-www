@@ -9,11 +9,6 @@ body {
     top: 0;
     z-index: 100;
 
-    @media @mobile {
-      .dimensions(100%, auto);
-      position: relative;
-    }
-
     > div {
       height: 100%;
       margin: 0 auto;
@@ -23,25 +18,15 @@ body {
       text-align: left;
       max-width: 350px;
 
-      @media @mobile {
-        max-width: none;
-      }
-
       > a.logo {
         .dimensions(85px, 85px);
         display: block;
         float: right;
         margin: 110px 50px 0 0;
-        @media @mobile {
-          margin: 40px 0 0 0;
-        }
       }
       > h1 {
         margin: 130px 0 90px 0;
         line-height: 1.2;
-        @media @mobile {
-          font-size: 2.2em;
-        }
       }
       > p {
         .font-color(rgba(255, 255, 255, 0.5));
@@ -53,12 +38,6 @@ body {
         left: 20px;
         max-width: @contentWidth;
         position: absolute;
-
-        @media @mobile {
-          position: static;
-          margin: 60px 0 20px;
-          > span.prop { display: none; }
-        }
 
         > ul.social-links {
           margin: 0;
@@ -115,16 +94,31 @@ body {
 
 
 
+@media @mobile {
+  body {
+    > div.nav {
+      .dimensions(100%, auto);
+      position: relative;
+      display: none;
 
+      > div {
+        max-width: none;
 
-
-
-
-
-
-
-
-
+        > a.logo {
+          margin: 40px 0 0 0;
+        }
+        > h1 {
+          font-size: 2.2em;
+        }
+        > div.contact-info {
+          position: static;
+          margin: 60px 0 20px;
+          > span.prop { display: none; }
+        }
+      }
+    }
+  }
+}
 
 
 
@@ -151,6 +145,8 @@ body {
   }
 }
 
+
+
 @media @laptop {
   body {
     > div.nav {
@@ -169,13 +165,6 @@ body {
   }
 }
 
-@media @mobile {
-  body {
-    > div.nav {
-      display: none;
-    }
-  }
-}
 
 
 
@@ -187,15 +176,23 @@ body.show-home {
   > div.content {
     display: none;
   }
+}
 
-  > div.nav {
-    @media @mobile {
+
+@media @mobile {
+  body.show-home {
+    > div.nav {
       display: block;
     }
+  }
+}
 
-    @media @laptop {
+
+
+@media @laptop {
+  body.show-home {
+    > div.nav {
       width: 100%;
-      min-width: 260px;
       > div {
         float: none;
         margin: 0 auto;
