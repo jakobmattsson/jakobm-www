@@ -7,10 +7,11 @@ Några case att testa:
 
 
 
-
 Must-have code:
+- Minimifiera (så att det laddar något snabbare i alla fall)
 - Måste sätta content-type html på filerna som saknar typ (detta görs enkelt i bucketful - utöka och släpp ny version!)
   - exports.putFile ====>>> ContentType: path.extname(filename) == '' ? 'text/html' : mime.lookup(filename),
+  - Prova detta genom genom att pusha allt till repot och sedan installera på nytt (tror att jag gjort en lokal ändring av opra)
 - Ta bort animationerna på navigationen i mobile
 
 
@@ -18,17 +19,15 @@ Must-have code:
 Must-haves:
 - Gå igenom copy. Hur göra? Vem bedömer?
 - På speaker-sidan, introducera citaten lite bättre (typ "här är lite saker folk har sagt i surveyn, efter presentationen etc")
-- Ändra strukturen för telefoner? Så att man inte har "startsidan" på toppen av varje undersida.
-  - ta bort den lilla animationen som fadar in texten på nya sidor
-  - ta bort huvudmenyn från toppen. Man får navigera fram och tillbaka istället (och "back to top")
-  - avståendet mellan olika quotes måste vara större
-
-
+- Någon fishbrain-copy för att göra det tydligare vad jag står för idag.
+- Byt ut min gmail mot typ "jakob@jakobm.com"
 
 
 
 Nice-to-haves (Jag):
-- Referens av Magnus Stein
+- Article-vyn på telefonen verkar göra helt fel. Har inte ens tänkt på den, vad är det?
+- Inte ok att opra-compilern måste köras när man bygger -- det kräver internet, jobbigt
+- Ladda inte hela sidan på en gång, utan dra in nya delar först när de behövs
 - RSS till bloggen
 - Bygg det hela utan opra. Watcha alla filer och kompilera om det som behövs automatiskt.
 - Få bort jQuery (måste testa IE9 för detta)
@@ -51,3 +50,43 @@ Fler ställen på webben:
 - tumblr (stäng ner?)
 - npm
 - lanyrd
+
+
+
+
+FIX
+======
+* Texten "hoppar" lite i animationen på slutet (verkar väldigt sporadiskt.. svårt att reproducera?)
+* I mobilläge så borde undersidorna också innehålla något lila!
+* Refaktorera nav.less kanske? --- mest bonus
+
+* Om jag också löser höjden på vänsterkolumnen så kommer den här punkten nedan att lösa sig. kan vara stor ändring dock...
+  * På en skärm som inte är så hög så flyger den lila kolumnen ute till vänster.
+  * Marginalen är fel när man är i ett ganska litet desktop-läge. % vs max.
+  * På liten skärmbredd så går inte det lila till botten
+
+
+HUR MAN TESTAR
+==============
+
+Gör följande för båda sizarna:
+
+- Öppna startsidan
+- Klicka igenom länkarna
+- Resiza om till det andra formatet
+- Klicka igenom länkarna igen
+
+- Öppna en undersida (i ny flik)
+- Klicka igenom länkarna
+
+
+
+- Gör ovanstående för:
+  - fullscreen macbook
+  - fullscreen macbook utan JS
+  - fullscreen macbook IE9 (som saknar pushstate)
+  - fullscreen macbook IE8 (eller hur lågt jag nu vill stöda)
+  - fullscreen macbook IE7 (eller något annat som är under gränsen för support)
+  - mobilen landscape
+  - mobilen stående
+  - cinema display
