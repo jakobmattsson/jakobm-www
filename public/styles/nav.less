@@ -21,11 +21,10 @@ body {
       padding: 0 20px;
       position: relative;
       text-align: left;
+      max-width: 350px;
 
-      @media @laptop {
-        // float: right;
-        // margin: 0 25px 0 auto;
-        max-width: 350px;
+      @media @mobile {
+        max-width: none;
       }
 
       > a.logo {
@@ -114,6 +113,21 @@ body {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media @smallHeight {
   body {
     > div.nav {
@@ -137,14 +151,9 @@ body {
   }
 }
 
-
-body {
-  > div.nav {
-    @media @mobile {
-      display: none;
-    }
-
-    @media @laptop {
+@media @laptop {
+  body {
+    > div.nav {
       width: @navWidth;
       min-width: 260px;
       > div {
@@ -159,6 +168,15 @@ body {
     }
   }
 }
+
+@media @mobile {
+  body {
+    > div.nav {
+      display: none;
+    }
+  }
+}
+
 
 
 
