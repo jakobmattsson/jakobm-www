@@ -2,46 +2,48 @@ html {
   height: 100%;
 }
 
-body > div.outer-wrapper {
+body {
   height: 100%;
   background: @bodyBackgroundColor;
 
-  > div.content {
-    .dimensions(auto, auto);
-    display: block;
-    position: relative;
+  div.outer-wrapper {
 
-    // när skärmen är större än 4*navMinWidth, då är marginalen navWidth
-    // när skärmen är mindre än 4*navMinWidth, då är marginalen navMinWidth
-    @media (max-width: (@navMinWidth * 100 / @navWidth)) {
-      margin: 0 0 0 @navMinWidth;
-    }
-    @media (min-width: (@navMinWidth * 100 / @navWidth)) {
-      margin: 0 0 0 @navWidth;
-    }
+    > div.content {
+      .dimensions(auto, auto);
+      display: block;
+      position: relative;
 
-    > a.close {
-      .font-color(@black, @gray);
-      border: none;
-      outline: none;
-      background: none;
-      cursor: pointer;
-      font-family: @baseFontFamily;
-      font-size: 70px;
-      line-height: 70px;
-      padding: 0 20px;
-      position: fixed;
-      right: 20px;
-      top: 20px;
-    }
+      // när skärmen är större än 4*navMinWidth, då är marginalen navWidth
+      // när skärmen är mindre än 4*navMinWidth, då är marginalen navMinWidth
+      @media (max-width: (@navMinWidth * 100 / @navWidth)) {
+        margin: 0 0 0 @navMinWidth;
+      }
+      @media (min-width: (@navMinWidth * 100 / @navWidth)) {
+        margin: 0 0 0 @navWidth;
+      }
 
-    // Sets all pages to hidden as starting point
-    > div {
-      display: none;
+      > a.close {
+        .font-color(@black, @gray);
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        font-family: @baseFontFamily;
+        font-size: 70px;
+        line-height: 70px;
+        padding: 0 20px;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+      }
+
+      // Sets all pages to hidden as starting point
+      > div {
+        display: none;
+      }
     }
   }
 }
-
 
 
 @media @mobile {
