@@ -25,11 +25,11 @@
     "opraFiles": {
       "404.html": {
         "concat": true,
-        "compress": false
+        "compress": true
       },
       "source.html": {
         "concat": true,
-        "compress": false
+        "compress": true
       }
     }
   },
