@@ -1,3 +1,4 @@
+exports.dependsOn = ['document']
 exports.execute = ({ document }) ->
 
   (url) ->

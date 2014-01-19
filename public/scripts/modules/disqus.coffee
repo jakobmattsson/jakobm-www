@@ -1,3 +1,4 @@
+exports.dependsOn = ['document', 'window', 'loadScript']
 exports.execute = ({ document, window, loadScript }) ->
 
   loaded = false

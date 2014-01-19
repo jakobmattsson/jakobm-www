@@ -1,3 +1,4 @@
+exports.dependsOn = ['$', 'tools', 'loadScript', 'document', 'unilytics']
 exports.execute = ({ $, tools, loadScript, document, unilytics }) ->
 
   {toArray} = tools

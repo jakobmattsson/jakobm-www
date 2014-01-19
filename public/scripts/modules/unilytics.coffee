@@ -1,3 +1,4 @@
+exports.dependsOn = ['location', 'analytics']
 exports.execute = ({ location, analytics }) ->
   if location.hostname == 'localhost' then {
     trackLink: (node, args...) ->

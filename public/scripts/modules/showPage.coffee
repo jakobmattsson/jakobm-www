@@ -11,7 +11,7 @@ rootPageName = 'home'
 
 
 
-
+exports.dependsOn = ['window', 'document', 'loadScript', 'tools', '$', 'historyWrapper', 'unilytics']
 exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, unilytics }) ->
   
   win = window

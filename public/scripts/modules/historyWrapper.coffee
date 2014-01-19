@@ -1,3 +1,4 @@
+exports.dependsOn = ['window', 'tools', 'history', 'location']
 exports.execute = ({ window, tools, history, location }) ->
 
   hasHistoryAPI = history?

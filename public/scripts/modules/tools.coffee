@@ -1,3 +1,4 @@
+exports.dependsOn = []
 exports.execute = ->
 
   toArray: (arrayLike) ->
