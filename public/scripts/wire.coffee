@@ -7,6 +7,7 @@ di.registerFile('loadScript', 'scripts/modules/loadScript')
 di.registerFile('historyWrapper', 'scripts/modules/historyWrapper')
 di.registerFile('showPage', 'scripts/modules/showPage')
 di.registerFile('unilytics', 'scripts/modules/unilytics')
+di.registerFile('tracking', 'scripts/modules/tracking')
 
 di.registerRequire('jQuery', 'commonjs-jquery')
 

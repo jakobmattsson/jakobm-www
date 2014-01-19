@@ -50,17 +50,6 @@ exports.execute = ({ disqus, tools, loadScript, window, showPage, unilytics }) -
 
 
 
-  $('.social-links a').each ->
-    unilytics.trackLink(@, 'Clicked social link', { target: $(@).attr('href') })
-
-  $('.mini-cv a').each ->
-    unilytics.trackLink(@, 'Clicked employee link', { target: $(@).attr('href') })
-
-  $('a.close').each ->
-    unilytics.trackLink(@, 'Clicked close button')
-
-  $('a.logo').each ->
-    unilytics.trackLink(@, 'Clicked bowtie button')
 
 
 
