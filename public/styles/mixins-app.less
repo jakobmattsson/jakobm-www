@@ -48,12 +48,16 @@
   > h1 {
     margin: 0 0 50px;
     line-height: 1.2;
+
+    > span.breadcrumb {
+      display: none;
+      @media @mobile { display: inline }
+    }
   }
   > p { font-size: 1.3em; }
 
   a {
     .font-color(@green, lighten(@green, 15%));
-    font-weight: bold;
   }
 
   @media @mobile { padding: 20px 20px 100px; }

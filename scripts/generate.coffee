@@ -62,7 +62,17 @@ insertBlogPosts = (data, callback) ->
     runMarked postMarkdown, propagate callback, (postContent) ->
       callback null, """
         <div class="blog-post #{hardSlugify(title)}">
-          <h1><a href="/blog">« Blog</a></h1>
+          <h1>
+            <span class="breadcrumb">
+              <a href="/">Home</a>
+              <span> / </span>
+            </span>
+            <span>
+              <a href="/blog">Blog</a>
+              <span> / </span>
+            </span>
+            <span>#{title}</span>
+          </h1>
           <article>
             <header>
               <span class="post-date">#{new XDate(date).toString('d MMM yyyy')}</span>
@@ -80,8 +90,8 @@ insertBlogPosts = (data, callback) ->
 
 
 insertBlogList = (data, callback) ->
-  blogStart = '<h1>Blog</h1>'
-  ind = data.indexOf(blogStart) + blogStart.length
+  blogStart = new RegExp('<span>Blog</span>\\s*</h1>')
+  ind = data.match(blogStart).index + data.match(blogStart)[0].length
   before = data.slice(0, ind)
   after = data.slice(ind)
 

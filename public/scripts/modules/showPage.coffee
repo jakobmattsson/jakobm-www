@@ -13,9 +13,6 @@ exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, uni
   win = window
   doc = document
 
-  toggleScrollButton = (showScrollButton) ->
-    $('.scroll-to-top').toggle(showScrollButton)
-  
   { memoize } = tools
   { pushState, onPopState, getCurrent } = historyWrapper (path) -> path.slice(1)
 
@@ -24,9 +21,6 @@ exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, uni
   loadScriptOnce = memoize(loadScript)
 
   showPageMarkup = (name) ->
-    showScrollToTop = isMobileSized() && name != 'home' && name != ''
-    toggleScrollButton(showScrollToTop)
-
     newClass = makeBodyClassName(name)
     oldClass = doc.body.className
     changed = newClass != oldClass

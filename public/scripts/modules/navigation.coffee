@@ -1,6 +1,6 @@
 exports.execute = ({ disqus, tools, loadScript, window, showPage, unilytics }) ->
 
-  {toArray, memoize, notifyOnChange} = tools
+  {toArray} = tools
 
   pageClassFromUrl = (url) ->
     url.slice(1)
@@ -27,26 +27,6 @@ exports.execute = ({ disqus, tools, loadScript, window, showPage, unilytics }) -
     doc.body.insertBefore(node)
 
   loadStyles('/.code/transitions.css')
-
-  animatedScrollTo = (y) ->
-    $('html, body').animate({ scrollTop: y }, 300)
-
-  toggleScrollButton = (showScrollButton) ->
-    $('.scroll-to-top').toggle(showScrollButton)
-
-  getScrollLocation = ->
-    $(win).scrollTop()
-
-  getNavHeight = ->
-    $('.nav').height()
-
-
-  scrollTo = ({ y, animate }) ->
-    if animate
-      animatedScrollTo(y)
-    else
-      win.scrollTo(0, y)
-
 
 
 
