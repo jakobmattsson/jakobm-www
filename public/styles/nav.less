@@ -1,4 +1,4 @@
-body {
+body > div.outer-wrapper {
   > div.nav {
     .dimensions(100%, 100%);
     .font-color(white);
@@ -95,7 +95,7 @@ body {
 
 
 @media @mobile {
-  body {
+  body > div.outer-wrapper {
     > div.nav {
       .dimensions(100%, auto);
       position: relative;
@@ -123,7 +123,7 @@ body {
 
 
 @media @smallHeight {
-  body {
+  body > div.outer-wrapper {
     > div.nav {
       .border-radius(0 0 10px 0);
       .dimensions(100%, auto);
@@ -148,7 +148,7 @@ body {
 
 
 @media @laptop {
-  body {
+  body > div.outer-wrapper {
     > div.nav {
       width: @navWidth;
       min-width: 260px;
@@ -172,7 +172,7 @@ body {
 
 
 
-body.show-home {
+body.show-home > div.outer-wrapper {
   > div.content {
     display: none;
   }
@@ -180,7 +180,7 @@ body.show-home {
 
 
 @media @mobile {
-  body.show-home {
+  body.show-home > div.outer-wrapper {
     > div.nav {
       display: block;
     }
@@ -190,7 +190,7 @@ body.show-home {
 
 
 @media @laptop {
-  body.show-home {
+  body.show-home > div.outer-wrapper {
     > div.nav {
       width: 100%;
       > div {

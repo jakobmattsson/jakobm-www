@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 
-body {
+body > div.outer-wrapper {
   height: 100%;
   background: @bodyBackgroundColor;
 
@@ -37,7 +37,7 @@ body {
 
 
 @media @mobile {
-  body {
+  body > div.outer-wrapper {
     > div.content {
       margin: 0;
       > a.close {

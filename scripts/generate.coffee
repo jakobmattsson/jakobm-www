@@ -46,7 +46,7 @@ indentLines = (html, indent) ->
 
 
 insertBlogPosts = (data, callback) ->
-  blogEnd = new RegExp('</div>\\s*<div class="fallback">')
+  blogEnd = new RegExp('</div>\\s*</div>\\s*<div class="fallback">')
   ind = data.match(blogEnd).index
   before = data.slice(0, ind)
   after = data.slice(ind)
@@ -125,7 +125,7 @@ extendCss = ->
   styles = fs.readFileSync(styleFile, 'utf8')
 
   pages().map((x) -> x.slice(1)).filter(Boolean).forEach (page) ->
-    styles += "body.show-#{page} > div.content > div.#{page} { display: block; }\n"
+    styles += "body.show-#{page} > div.outer-wrapper > div.content > div.#{page} { display: block; }\n"
 
   fs.writeFileSync(styleFile, styles, 'utf8')
 
