@@ -1,36 +1,35 @@
 @import "/styles/mixins-generic.less";
+@import "/styles/variables.less";
 
 a {
-  // .transition(all 5.3s);
+  // .transition(all @pageTransitionTime);
 }
-
-@transTime: 0.5s;
 
 body {
   > div.nav {
-    .transition(width @transTime);
+    .transition(width @pageTransitionTime);
 
     > div {
-      .transition(width @transTime);
-      .transition(max-width @transTime);
+      .transition(width @pageTransitionTime);
+      .transition(max-width @pageTransitionTime);
       
       > p {
-        .transition(all @transTime);
+        .transition(all @pageTransitionTime);
       }
 
       > a.logo {
-        .transition(all @transTime);
+        .transition(all @pageTransitionTime);
       }
       > h1 {
-        .transition(all @transTime);
+        .transition(all @pageTransitionTime);
       }
       > div.contact-info {
-        .transition(all @transTime);
+        .transition(all @pageTransitionTime);
 
         > ul.social-links {
           > li {
             > span.tooltip {
-              .transition(all @transTime);
+              .transition(all @pageTransitionTime);
             }
           }
         }
@@ -39,10 +38,10 @@ body {
   }
 
   > div.content {
-    .transition(all @transTime);
+    .transition(all @pageTransitionTime);
 
     > a.close {
-      .transition(all @transTime);
+      .transition(all @pageTransitionTime);
     }
   }
 }
