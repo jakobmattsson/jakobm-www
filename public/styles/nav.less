@@ -178,17 +178,17 @@ body > div.outer-wrapper {
 
 
 
-body.show-home > div.outer-wrapper {
-  > div.content {
-    display: none;
+body.show-home {
+  background-color: @purple;
+  div.outer-wrapper {
+    > div.content {
+      display: none;
+    }
   }
 }
 
-
 @media @mobile {
   body.show-home {
-    background-color: @purple;
-
     div.outer-wrapper {
       > div.nav {
         display: block;
