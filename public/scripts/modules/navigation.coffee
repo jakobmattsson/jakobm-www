@@ -5,15 +5,6 @@ exports.execute = ({ disqus, tools, loadScript, window, showPage, unilytics }) -
   pageClassFromUrl = (url) ->
     url.slice(1)
 
-
-
-
-
-
-
-
-
-
   win = window
   doc = win.document
   hist = win.history
@@ -28,17 +19,18 @@ exports.execute = ({ disqus, tools, loadScript, window, showPage, unilytics }) -
 
   loadStyles('/.code/transitions.css')
 
-
-
-
-
-
+  # Run all internal links as JS, without reloading the page
   toArray(doc.querySelectorAll('a')).forEach (node) ->
     node.addEventListener 'click', (e) ->
       href = @getAttribute('href')
       return true if href[0] != '/'
-
       page = pageClassFromUrl(href)
       showPage(page)
       e.preventDefault()
       false
+
+  # Clicks on the navigator (except for links) navigates back to the start page
+  toArray(doc.querySelectorAll('.nav')).forEach (node) ->
+    node.addEventListener 'click', (e) ->
+      if e.target.tagName != 'A'
+        showPage('')

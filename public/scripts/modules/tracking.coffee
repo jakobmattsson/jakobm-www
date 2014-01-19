@@ -15,3 +15,8 @@ exports.execute = ({ $, tools, loadScript, document, unilytics }) ->
   toArray(document.querySelectorAll('a.logo')).forEach (node) ->
     node.addEventListener 'click', ->
       unilytics.track('Clicked bowtie button')
+
+  toArray(document.querySelectorAll('.nav')).forEach (node) ->
+    node.addEventListener 'click', (e) ->
+      if e.target.tagName != 'A'
+        unilytics.track('Clicked navigator area')
