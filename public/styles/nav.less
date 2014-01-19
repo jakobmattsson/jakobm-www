@@ -1,3 +1,10 @@
+body {
+  div.outer-wrapper {
+    position: relative;
+  }
+}
+
+
 body > div.outer-wrapper {
   > div.nav {
     .dimensions(100%, 100%);
@@ -7,6 +14,7 @@ body > div.outer-wrapper {
     position: fixed;
     text-align: center;
     top: 0;
+    bottom:0;
     z-index: 100;
 
     > div {
@@ -125,12 +133,9 @@ body > div.outer-wrapper {
 @media @smallHeight {
   body > div.outer-wrapper {
     > div.nav {
-      .border-radius(0 0 10px 0);
       .dimensions(100%, auto);
-      position: relative;
+      position: absolute;
       float: left;
-      // top: 0;
-      // bottom: 0;
 
       > div {
         overflow: auto;
@@ -180,9 +185,16 @@ body.show-home > div.outer-wrapper {
 
 
 @media @mobile {
-  body.show-home > div.outer-wrapper {
-    > div.nav {
-      display: block;
+  body.show-home {
+    background-color: @purple;
+
+    div.outer-wrapper {
+      > div.nav {
+        display: block;
+        .phone {
+          display: block;
+        }
+      }
     }
   }
 }
