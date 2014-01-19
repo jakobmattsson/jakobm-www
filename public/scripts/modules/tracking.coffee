@@ -14,4 +14,4 @@ exports.execute = ({ $, tools, loadScript, document, unilytics }) ->
 
   toArray(document.querySelectorAll('a.logo')).forEach (node) ->
     node.addEventListener 'click', ->
-      unilytics.track('Clicked close button')
+      unilytics.track('Clicked bowtie button')
