@@ -1,95 +1,57 @@
-// 
-// Reset and basic variables
-// --------------------------------------------
+@import "/styles/variables.less";
 
-
-
-
-//
-// -----------------------------------------------------------------------
-//
-// Variables
-//
-// -----------------------------------------------------------------------
-//
-
-
-// Colors
-// -------------------------
-@black:         #000;
-@grayDarker:    #222;
-@grayDark:      #333;
-@gray:          #555;
-@grayLight:     #999;
-@grayLighter:   #eee;
-@white:         #fff;
-
-// Layout variables
-// -------------------------
-@footerHeight: 50px;
-@footerPadding: 1px;
-@contentWidth: 940px;
-@contentWidthTablet: 720px;
-
-// Type
-// -------------------------
-@baseFontFamily:        "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@altFontFamily:         "Merriweather", Georgia, "Times New Roman", Times, serif;
-@baseFontSize:          100%;
-@baseLineHeight:        1.5;
-
-// Media Queries 
-// -------------------------
-@retinaDisplay: ~"only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-moz-min-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)";
-@mobile:        ~"only screen and (max-width: 760px)";
-@tablet:        ~"only screen and (min-width: 761px) and (max-width: 990px)";
-
-
-//
-// -----------------------------------------------------------------------
-//
-// Typography
-//
-// -----------------------------------------------------------------------
-//
 
 body {
-  font-family: @baseFontFamily;
+  font-family: @altFontFamily;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
 }
 
 h1 {
-  font-family: 'Source Sans Pro';
-  color: @black;
-  font-size: 76px;
-  letter-spacing: -2px;
-  font-weight: 900;
-  line-height: 76px;
-  margin: 20px 0;
-
-  @media @mobile {
-    font-size: 48px;
-    letter-spacing: -1px;
-    line-height: 48px;
-  }
+  font-family: @baseFontFamily;
+  font-weight: normal;
+  font-size: 1.7em;
+  @media @mobile {}
 }
 
 h2 {
-  font-family: 'Source Sans Pro';
-  color: @black;
-  font-size: 35px;
-  font-weight: 900;
-  line-height: 35px;
-  margin: 20px 0;
-
-  @media @mobile {
-    font-size: 30px;
-    line-height: 30px;
-  }
+  font-family: @baseFontFamily;
+  font-size: 1.4em;
+  @media @mobile {}
 }
 
+h3 {
+  font-family: @baseFontFamily;
+  font-size: 1.2em;
+  margin-bottom: 0.6em;
+  @media @mobile {}
+}
 
+a {
+  .font-color(@lightBlue, @blue);
+  text-decoration: none;
+}
 
+a:active {
+  // http://css-tricks.com/snippets/css/remove-dotted-link-borders
+  outline: none;
+}
 
+button {
+  border: none;
+  outline: none;
+  background: none;
+}
 
+code {
+  background: #d8d8d8;
+  border: 1px solid #C0C0C0;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+pre code {
+  border: none;
+  border-radius: 0px;
+  font-family: monospace, serif;
+}

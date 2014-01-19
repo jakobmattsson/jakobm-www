@@ -1,0 +1,1 @@
+<img src="/blog-posts/2011-10-09 People that call themselves nerds/nerds.jpg">

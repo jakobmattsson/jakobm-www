@@ -1,0 +1,223 @@
+body {
+  div.outer-wrapper {
+    position: relative;
+  }
+}
+
+
+body > div.outer-wrapper {
+  > div.nav {
+    .dimensions(100%, 100%);
+    .font-color(white);
+    background: @purple;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    bottom:0;
+    z-index: 100;
+
+    > div {
+      height: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0 20px;
+      position: relative;
+      text-align: left;
+      max-width: 350px;
+
+      > a.logo {
+        .dimensions(85px, 85px);
+        display: block;
+        float: right;
+        margin: 110px 50px 0 0;
+      }
+      > h1 {
+        margin: 130px 0 90px 0;
+        line-height: 1.2;
+      }
+      > p {
+        .font-color(rgba(255, 255, 255, 0.5));
+      }
+      > div.contact-info {
+        .font-color(rgba(255, 255, 255, 0.5));
+        bottom: 15px;
+        font-size: 0.7em;
+        left: 20px;
+        max-width: @contentWidth;
+        position: absolute;
+
+        > ul.social-links {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          > li {
+            position: relative;
+            float: left;
+            margin: 0 0.5em 0 0;
+            > span.tooltip {
+              .border-radius(3px 3px 3px 0px);
+              .font-color(@purple);
+              background: @lightBlue;
+              cursor: default;
+              font-family: @baseFontFamily;
+              font-size: 0.8em;
+              left: 0.5em;
+              opacity: 0;
+              padding: 0.1em 0.8em 0.14em;
+              position: absolute;
+              top: -2.3em;
+              white-space: nowrap;
+              &::after {
+                .dimensions(0, 0);
+                @triangleSize: 0.5em;
+                border-bottom: @triangleSize solid transparent;
+                border-left: @triangleSize solid @lightBlue;
+                border-right: @triangleSize solid transparent;
+                border-top: @triangleSize solid @lightBlue;
+                bottom: -@triangleSize;
+                content: '';
+                left: 0;
+                position: absolute;
+              }
+            }
+            > a {
+              display: inline-block;
+              line-height: 0;
+            }
+            > a.speaker-deck { .speaker-deck-icon(@purple); }
+            &:hover {
+              > span.tooltip {
+                opacity: 1;
+                &:hover { opacity: 0; }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+@media @mobile {
+  body > div.outer-wrapper {
+    > div.nav {
+      .dimensions(100%, auto);
+      position: relative;
+      display: none;
+
+      > div {
+        max-width: none;
+
+        > a.logo {
+          margin: 40px 0 0 0;
+        }
+        > h1 {
+          font-size: 2.2em;
+        }
+        > div.contact-info {
+          position: static;
+          margin: 60px 0 20px;
+          > span.prop { display: none; }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media @smallHeight {
+  body > div.outer-wrapper {
+    > div.nav {
+      .dimensions(100%, auto);
+      position: absolute;
+      float: left;
+
+      > div {
+        overflow: auto;
+        height: auto;
+
+        > div.contact-info {
+          position: static;
+          margin: 40px 0 100px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+@media @laptop {
+  body > div.outer-wrapper {
+    > div.nav {
+      width: @navWidth;
+      min-width: @navMinWidth;
+      > div {
+        font-size: 0.7em;
+        > a.logo { margin: 30px 0 0 0; }
+        > h1 { margin: 130px 0 50px 0; }
+        > div.contact-info {
+          font-size: 1em;
+          > span.prop { display: none; }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+body.show-home {
+  background-color: @purple;
+  div.outer-wrapper {
+    > div.content {
+      display: none;
+    }
+  }
+}
+
+@media @mobile {
+  body.show-home {
+    div.outer-wrapper {
+      > div.nav {
+        display: block;
+        .phone {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+
+
+@media @laptop {
+  body.show-home > div.outer-wrapper {
+    > div.nav {
+      width: 100%;
+      > div {
+        float: none;
+        margin: 0 auto;
+        max-width: @contentWidth;
+        font-size: 1em;
+        > a.logo { margin: 110px 50px 0 0; }
+        > h1 { margin: 130px 0 90px 0; }
+        > div.contact-info {
+          font-size: 0.7em;
+          > span.prop { display: inline; }
+        }
+      }
+    }
+  }
+}

@@ -1,37 +1,3 @@
-// 
-// Mixins
-// --------------------------------------------
-
-@import "/styles/reset.less";
-
-
-
-
-//
-// -----------------------------------------------------------------------
-//
-// Typography
-//
-// -----------------------------------------------------------------------
-//
-
-
-.highlight-pink(@fontSize:23px) {
-  color: @pink;
-  font-family: @baseFontFamily;
-  font-style: normal;
-  font-weight: bold;
-  font-size: @fontSize;
-}
-
-.alt-paragraph() {
-  font-family: @altFontFamily;
-  line-height: 30px;
-}
-
-
-
-
 //
 // -----------------------------------------------------------------------
 //
@@ -80,7 +46,7 @@
 .border-radius(@r) {
   -moz-border-radius: @r;
   -webkit-border-radius: @r;
-  border-radius: @r; 
+  border-radius: @r;
 }
 .border-radius(@tl, @tr, @br, @bl) {
   border-top-left-radius: @tl;
@@ -90,7 +56,7 @@
   border-top-right-radius: @tr;
   -moz-border-radius-topright: @tr;
   -webkit-border-top-right-radius: @tr;
-  
+
   border-bottom-right-radius: @br;
   -moz-border-radius-bottomright: @br;
   -webkit-border-bottom-right-radius: @br;
@@ -98,7 +64,7 @@
   border-bottom-left-radius: @bl;
   -moz-border-radius-bottomleft: @bl;
   -webkit-border-bottom-left-radius: @bl;
-} 
+}
 
 
 
@@ -236,7 +202,7 @@
   -moz-transition-property: -moz-transform;
   -ms-transition-property: -ms-transform;
   -o-transition-property: -o-transform;
-  transition-property: transform;  
+  transition-property: transform;
 }
 
 
@@ -294,31 +260,3 @@
   -o-animation-timing-function: @f;
   animation-timing-function: @f;
 }
-
-
-
-
-//
-// -----------------------------------------------------------------------
-//
-// Links and buttons
-//
-// -----------------------------------------------------------------------
-//
-
-
-
-
-
-
-
-
-//
-// -----------------------------------------------------------------------
-//
-// Layout elements
-//
-// -----------------------------------------------------------------------
-//
-
-

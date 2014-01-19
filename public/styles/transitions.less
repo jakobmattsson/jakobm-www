@@ -1,0 +1,51 @@
+@import "/styles/mixins-generic.less";
+@import "/styles/variables.less";
+
+a {
+  // .transition(all @pageTransitionTime);
+}
+
+body {
+
+  > div.outer-wrapper {
+
+    > div.nav {
+      .transition(width @pageTransitionTime);
+
+      > div {
+        .transition(width @pageTransitionTime);
+        .transition(max-width @pageTransitionTime);
+      
+        > p {
+          .transition(all @pageTransitionTime);
+        }
+
+        > a.logo {
+          .transition(all @pageTransitionTime);
+        }
+        > h1 {
+          .transition(all @pageTransitionTime);
+        }
+        > div.contact-info {
+          .transition(all @pageTransitionTime);
+
+          > ul.social-links {
+            > li {
+              > span.tooltip {
+                .transition(all @pageTransitionTime);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    > div.content {
+      .transition(all @pageTransitionTime);
+
+      > a.close {
+        .transition(all @pageTransitionTime);
+      }
+    }
+  }
+}

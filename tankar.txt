@@ -1,0 +1,56 @@
+Must-haves:
+- Gå igenom copy. Hur göra? Vem bedömer?
+- På speaker-sidan, introducera citaten lite bättre (typ "här är lite saker folk har sagt i surveyn, efter presentationen etc")
+- Någon fishbrain-copy för att göra det tydligare vad jag står för idag.
+- Tänka på ordformen; "recruit" och "coder" är inte samma (siubstantiv eller verb - vilket ska det vara?)
+
+
+Nice-to-haves (Jag):
+- Article-vyn på telefonen verkar göra helt fel. Har inte ens tänkt på den, vad är det?
+- Inte ok att opra-compilern måste köras när man bygger -- det kräver internet, jobbigt
+- Ladda inte hela sidan på en gång, utan dra in nya delar först när de behövs
+- RSS till bloggen
+- Bygg det hela utan opra. Watcha alla filer och kompilera om det som behövs automatiskt.
+- Få bort jQuery (måste testa IE9 för detta)
+- Borde sätta "title" på webbsidan dynamiskt
+- Vad kan göras för att sökmotoroptimera?
+- Aktivera disqus (mer eller mindre klart; kolla bara att det blir bra i praktiken)
+- En bild när jag föreläser på "train coders".
+- Skulle gärna ha en lista över alla konferenser jag pratat på.
+- siten "hoppar" lite när man växlar mellan två sidor där ena har scrollbar och den andra inte.
+
+Fler ställen på webben:
+- facebook
+- sc2rank
+- last.fm
+- tumblr (stäng ner?)
+- npm
+- lanyrd
+
+
+
+
+HUR MAN TESTAR
+==============
+
+Gör följande för båda sizarna:
+
+- Öppna startsidan
+- Klicka igenom länkarna
+- Resiza om till det andra formatet
+- Klicka igenom länkarna igen
+
+- Öppna en undersida (i ny flik)
+- Klicka igenom länkarna
+
+
+
+- Gör ovanstående för:
+  - fullscreen macbook
+  - fullscreen macbook utan JS
+  - fullscreen macbook IE9 (som saknar pushstate)
+  - fullscreen macbook IE8 (eller hur lågt jag nu vill stöda)
+  - fullscreen macbook IE7 (eller något annat som är under gränsen för support)
+  - mobilen landscape
+  - mobilen stående
+  - cinema display

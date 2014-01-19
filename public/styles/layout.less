@@ -1,0 +1,67 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background: @bodyBackgroundColor;
+
+  div.outer-wrapper {
+
+    > div.content {
+      .dimensions(auto, auto);
+      display: block;
+      position: relative;
+
+      // när skärmen är större än 4*navMinWidth, då är marginalen navWidth
+      // när skärmen är mindre än 4*navMinWidth, då är marginalen navMinWidth
+      @media (max-width: (@navMinWidth * 100 / @navWidth)) {
+        margin: 0 0 0 @navMinWidth;
+      }
+      @media (min-width: (@navMinWidth * 100 / @navWidth)) {
+        margin: 0 0 0 @navWidth;
+      }
+
+      > a.close {
+        .font-color(@black, @gray);
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        font-family: @baseFontFamily;
+        font-size: 70px;
+        line-height: 70px;
+        padding: 0 20px;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+      }
+
+      > .content-banner {
+        display: none;
+        background-color: @purple;
+        height: 50px;
+      }
+
+      // Sets all pages to hidden as starting point
+      > div {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@media @mobile {
+  body > div.outer-wrapper {
+    > div.content {
+      margin: 0;
+      > a.close {
+        display: none;
+      }
+      > .content-banner {
+        display: block;
+      }
+    }
+  }
+}

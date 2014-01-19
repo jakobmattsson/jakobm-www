@@ -1,0 +1,56 @@
+.blog-post {
+
+  .page();
+
+  > h1 {
+    > a { font-weight: normal; }
+  }
+
+  > article {
+    > header { .blog-post-header(); }
+    > section {
+      > p:first-child {
+        margin-top: 0.5em;
+      }
+      > blockquote {
+        .blog-quote();
+      }
+      img {
+        .border-radius(4px);
+        max-width: 100%;
+
+        &.border {
+          border: 1px solid @grayLight;
+          padding: 5px;
+        }
+        &.right { float: right; }
+        &.left { float: left; }
+      }
+      pre {
+        .border-radius(4px);
+        font-size: 0.8em;
+        padding: 1.5em 2.5em 1.7em;
+      }
+    }
+  }
+
+  > #disqus_thread {
+    margin-top: 100px;
+  }
+}
+
+
+
+@media @mobile {
+  .blog-post {
+    > article {
+      > section {
+        pre {
+          .border-radius(0);
+          margin: 0 -20px;
+          padding: 1.2em 20px 1.5em;
+        }
+      }
+    }
+  }
+}
