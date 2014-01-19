@@ -1,27 +1,8 @@
-Några case att testa:
-- utan javascript
-- utan pushState (ie9)
-- med allting
-- ovanstående tre på en iphone (i båda vinklarna), cinema screen och ipad (i båda vinklarna)
-- Testa i olika browsers (kolla att gamla fallbackar rätt och att nya ser korrekta ut)
-
-
-
-Must-have code:
-- Minimifiera (så att det laddar något snabbare i alla fall)
-- Måste sätta content-type html på filerna som saknar typ (detta görs enkelt i bucketful - utöka och släpp ny version!)
-  - exports.putFile ====>>> ContentType: path.extname(filename) == '' ? 'text/html' : mime.lookup(filename),
-  - Prova detta genom genom att pusha allt till repot och sedan installera på nytt (tror att jag gjort en lokal ändring av opra)
-- Ta bort animationerna på navigationen i mobile
-
-
-
 Must-haves:
 - Gå igenom copy. Hur göra? Vem bedömer?
 - På speaker-sidan, introducera citaten lite bättre (typ "här är lite saker folk har sagt i surveyn, efter presentationen etc")
 - Någon fishbrain-copy för att göra det tydligare vad jag står för idag.
-- Byt ut min gmail mot typ "jakob@jakobm.com"
-
+- Tänka på ordformen; "recruit" och "coder" är inte samma (siubstantiv eller verb - vilket ska det vara?)
 
 
 Nice-to-haves (Jag):
@@ -36,12 +17,7 @@ Nice-to-haves (Jag):
 - Aktivera disqus (mer eller mindre klart; kolla bara att det blir bra i praktiken)
 - En bild när jag föreläser på "train coders".
 - Skulle gärna ha en lista över alla konferenser jag pratat på.
-
-Nice-to-haves (Erik):
 - siten "hoppar" lite när man växlar mellan två sidor där ena har scrollbar och den andra inte.
-  - måste bero på något som är procentuellt.
-  - borde fixa detta i samband med att vi kollar på hur sidan ser ut på en stor skärm
-  - alternativt sätta always-visible scrollbars
 
 Fler ställen på webben:
 - facebook
@@ -52,18 +28,6 @@ Fler ställen på webben:
 - lanyrd
 
 
-
-
-FIX
-======
-* Texten "hoppar" lite i animationen på slutet (verkar väldigt sporadiskt.. svårt att reproducera?)
-* I mobilläge så borde undersidorna också innehålla något lila!
-* Refaktorera nav.less kanske? --- mest bonus
-
-* Om jag också löser höjden på vänsterkolumnen så kommer den här punkten nedan att lösa sig. kan vara stor ändring dock...
-  * På en skärm som inte är så hög så flyger den lila kolumnen ute till vänster.
-  * Marginalen är fel när man är i ett ganska litet desktop-läge. % vs max.
-  * På liten skärmbredd så går inte det lila till botten
 
 
 HUR MAN TESTAR
