@@ -9,8 +9,16 @@ body > div.outer-wrapper {
   > div.content {
     .dimensions(auto, auto);
     display: block;
-    margin: 0 0 0 @navWidth;
     position: relative;
+
+    // när skärmen är större än 4*navMinWidth, då är marginalen navWidth
+    // när skärmen är mindre än 4*navMinWidth, då är marginalen navMinWidth
+    @media (max-width: (@navMinWidth * 100 / @navWidth)) {
+      margin: 0 0 0 @navMinWidth;
+    }
+    @media (min-width: (@navMinWidth * 100 / @navWidth)) {
+      margin: 0 0 0 @navWidth;
+    }
 
     > a.close {
       .font-color(@black, @gray);
