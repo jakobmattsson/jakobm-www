@@ -1,3 +1,7 @@
+paddingTopMobile = 20
+paddingTopLaptop = 130
+
+
 makeBodyClassName = (pageName) ->
   'show-' + (pageName || rootPageName)
 
@@ -20,6 +24,20 @@ exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, uni
 
   loadScriptOnce = memoize(loadScript)
 
+  setPaddingTop = (name, withAnimation) ->
+    nodes = if name then $('.' + name) else $('div.content > div')
+
+    if isMobileSized()
+      nodes.css({ "padding-top": paddingTopMobile, opacity: 1 })
+    else
+      if withAnimation
+        nodes.css({ "padding-top": paddingTopLaptop + 20, opacity: 0 }).animate({ "padding-top": paddingTopLaptop, opacity: 1 }, 400)
+      else
+        nodes.css({ "padding-top": paddingTopLaptop, opacity: 1 })
+
+  window.addEventListener 'resize', ->
+    setPaddingTop(null, false)
+
   showPageMarkup = (name) ->
     newClass = makeBodyClassName(name)
     oldClass = doc.body.className
@@ -27,8 +45,7 @@ exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, uni
 
     doc.body.className = makeBodyClassName(name)
 
-    if changed && name && !isMobileSized()
-      $('.' + name).css({ "padding-top": 150, opacity: 0 }).animate({ "padding-top": 130, opacity: 1 }, 400)
+    setPaddingTop(name, changed && name)
 
     if name == 'speaker'
       loadScriptOnce('//speakerdeck.com/assets/embed.js')
