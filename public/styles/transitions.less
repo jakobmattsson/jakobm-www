@@ -4,30 +4,33 @@ a {
   // .transition(all 5.3s);
 }
 
+@transTime: 1.1s;
+
 body {
   > div.nav {
-    .transition(width 5.5s);
+    .transition(width @transTime);
 
     > div {
-      // .transition(width 5.5s);
+      .transition(width @transTime);
+      .transition(max-width @transTime);
       
       > p {
-        .transition(all 5.5s);
+        .transition(all @transTime);
       }
 
       > a.logo {
-        .transition(all 5.5s);
+        .transition(all @transTime);
       }
       > h1 {
-        .transition(all 5.5s);
+        .transition(all @transTime);
       }
       > div.contact-info {
-        .transition(all 5.5s);
+        .transition(all @transTime);
 
         > ul.social-links {
           > li {
             > span.tooltip {
-              .transition(all 5.3s);
+              .transition(all @transTime);
             }
           }
         }
@@ -36,10 +39,10 @@ body {
   }
 
   > div.content {
-    .transition(all 5.3s);
+    .transition(all @transTime);
 
     > a.close {
-      .transition(all 5.3s);
+      .transition(all @transTime);
     }
   }
 }
