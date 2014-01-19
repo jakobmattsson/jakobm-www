@@ -14,15 +14,6 @@ body {
       position: relative;
     }
 
-    @media @smallHeight {
-      .border-radius(0 0 10px 0);
-      .dimensions(100%, auto);
-      position: relative;
-      float: left;
-      background-color: yellow;
-    }
-
-
     > div {
       height: 100%;
       margin: 0 auto;
@@ -35,12 +26,6 @@ body {
         // float: right;
         // margin: 0 25px 0 auto;
         max-width: 350px;
-      }
-
-      @media @smallHeight {
-        overflow: auto;
-        height: auto;
-        background-color: red;
       }
 
       > a.logo {
@@ -74,12 +59,6 @@ body {
           position: static;
           margin: 60px 0 20px;
           > span.prop { display: none; }
-        }
-
-        @media @smallHeight {
-          position: static;
-          margin: 40px 0 100px;
-          background-color: pink;
         }
 
         > ul.social-links {
@@ -133,6 +112,31 @@ body {
     }
   }
 }
+
+
+@media @smallHeight {
+  body {
+    > div.nav {
+      .border-radius(0 0 10px 0);
+      .dimensions(100%, auto);
+      position: relative;
+      float: left;
+      // top: 0;
+      // bottom: 0;
+
+      > div {
+        overflow: auto;
+        height: auto;
+
+        > div.contact-info {
+          position: static;
+          margin: 40px 0 100px;
+        }
+      }
+    }
+  }
+}
+
 
 body {
   > div.nav {
