@@ -16,7 +16,7 @@ exports.execute = ({ disqus, tools, loadScript, window, showPage, unilytics }) -
     node.setAttribute('rel', 'stylesheet')
     node.setAttribute('type', 'text/css')
     node.setAttribute('href', url)
-    doc.body.insertBefore(node)
+    doc.body.insertBefore(node, null)
 
   loadStyles('/.code/transitions.css')
 
