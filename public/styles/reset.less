@@ -1,6 +1,5 @@
 @import "/styles/variables.less";
 
-
 body {
   font-family: @altFontFamily;
   font-size: @baseFontSize;
@@ -30,10 +29,10 @@ h3 {
 a {
   .font-color(@lightBlue, @blue);
   text-decoration: none;
+  outline: none;
 }
 
-a:active {
-  // http://css-tricks.com/snippets/css/remove-dotted-link-borders
+a:focus, a:active {
   outline: none;
 }
 
