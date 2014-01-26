@@ -46,7 +46,7 @@ indentLines = (html, indent) ->
 
 
 insertBlogPosts = (data, callback) ->
-  blogEnd = new RegExp('</div>\\s*</div>\\s*<div class="fallback">')
+  blogEnd = new RegExp('<span class="content-banner">&nbsp;</span>\\s*</div>\\s*</div>\\s*<div class="fallback">')
   ind = data.match(blogEnd).index
   before = data.slice(0, ind)
   after = data.slice(ind)

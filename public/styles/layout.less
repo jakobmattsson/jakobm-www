@@ -12,6 +12,8 @@ body {
       .dimensions(auto, auto);
       display: block;
       position: relative;
+      overflow: hidden;
+      background: @bodyBackgroundColor;
 
       // när skärmen är större än 4*navMinWidth, då är marginalen navWidth
       // när skärmen är mindre än 4*navMinWidth, då är marginalen navMinWidth
@@ -53,14 +55,18 @@ body {
 
 
 @media @mobile {
-  body > div.outer-wrapper {
-    > div.content {
-      margin: 0;
-      > a.close {
-        display: none;
-      }
-      > .content-banner {
-        display: block;
+  body {
+    background: @purple;
+
+    div.outer-wrapper {
+      > div.content {
+        margin: 0;
+        > a.close {
+          display: none;
+        }
+        > .content-banner {
+          display: block;
+        }
       }
     }
   }

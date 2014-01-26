@@ -19,5 +19,5 @@ exports.execute = ({ $, tools, loadScript, document, unilytics }) ->
 
   toArray(document.querySelectorAll('.nav')).forEach (node) ->
     node.addEventListener 'click', (e) ->
-      if e.target.tagName != 'A'
+      if (e.target || e.srcElement).tagName != 'A' # .target for standard, .srcElement for IE
         unilytics.track('Clicked navigator area')

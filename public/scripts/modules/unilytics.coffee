@@ -1,11 +1,18 @@
 exports.dependsOn = ['location', 'analytics']
 exports.execute = ({ location, analytics }) ->
-  if location.hostname == 'localhost' then {
+
+  ignoredHosts = ['localhost', 'staging.jakobm.com']
+
+  log = (args...) ->
+    if console?.log?
+      console.log(args...)
+
+  if ignoredHosts.some((host) -> host == location.hostname) then {
     trackLink: (node, args...) ->
       node.addEventListener 'click', (e) ->
-        console.log("TrackLink", args...)
+        log("TrackLink", args...)
     track: (args...) ->
-      console.log("Track", args...)
+      log("Track", args...)
     page: (args...) ->
-      console.log("Page", args...)
+      log("Page", args...)
   } else analytics

@@ -30,8 +30,8 @@ exports.execute = ({ disqus, tools, loadScript, window, showPage, unilytics }) -
       e.preventDefault()
       false
 
-  # Clicks on the navigator (except for links) navigates back to the start page
-  toArray(doc.querySelectorAll('.nav')).forEach (node) ->
-    node.addEventListener 'click', (e) ->
-      if e.target.tagName != 'A'
-        showPage('')
+  # # Clicks on the navigator (except for links) navigates back to the start page
+  # toArray(doc.querySelectorAll('.nav')).forEach (node) ->
+  #   node.addEventListener 'click', (e) ->
+  #     if (e.target || e.srcElement).tagName != 'A' # .target for standard, .srcElement for IE
+  #       showPage('')

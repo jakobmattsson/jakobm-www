@@ -1,11 +1,18 @@
 Must-haves:
-- Gå igenom copy. Hur göra? Vem bedömer?
-- På speaker-sidan, introducera citaten lite bättre (typ "här är lite saker folk har sagt i surveyn, efter presentationen etc")
-- Någon fishbrain-copy för att göra det tydligare vad jag står för idag.
-- Tänka på ordformen; "recruit" och "coder" är inte samma (siubstantiv eller verb - vilket ska det vara?)
+- Borde textstorleken vara mindre på ipaden också?
+- Gå igenom copy. Gör Julia-testet.
+- Kolla IE8 och IE11 (och IE7!) -- 8an funkar inte alls just nu
+  - ie8: social-länkarna funkar inte (dölj dem bara)
+  - ie8: marginalen för content-rutan är felaktig.
+
+
 
 
 Nice-to-haves (Jag):
+- Dumpa support för hash-routing. Webbläsare som inte har pushState får klara sig med vanliga sidomladdningar.
+- Lägg in tracking på alla länker (till gamla arbetsgivare, github, npm etc)
+- Tänka på ordformen; "recruit" och "coder" är inte samma (siubstantiv eller verb - vilket ska det vara?)
+- På speaker-sidan, introducera citaten lite bättre (typ "här är lite saker folk har sagt i surveyn, efter presentationen etc")
 - Article-vyn på telefonen verkar göra helt fel. Har inte ens tänkt på den, vad är det?
 - Inte ok att opra-compilern måste köras när man bygger -- det kräver internet, jobbigt
 - Ladda inte hela sidan på en gång, utan dra in nya delar först när de behövs
@@ -54,3 +61,14 @@ Gör följande för båda sizarna:
   - mobilen landscape
   - mobilen stående
   - cinema display
+
+
+
+
+
+
+
+
+
+
+
