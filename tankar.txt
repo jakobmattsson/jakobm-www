@@ -1,14 +1,10 @@
 Must-haves:
 - Borde textstorleken vara mindre på ipaden också?
 - Gå igenom copy. Gör Julia-testet.
-- Kolla IE8 och IE11 (och IE7!) -- 8an funkar inte alls just nu
-  - ie8: social-länkarna funkar inte (dölj dem bara)
-  - ie8: marginalen för content-rutan är felaktig.
-
-
 
 
 Nice-to-haves (Jag):
+- Välj en snyggare font till "outdated browser"-sidan
 - Dumpa support för hash-routing. Webbläsare som inte har pushState får klara sig med vanliga sidomladdningar.
 - Lägg in tracking på alla länker (till gamla arbetsgivare, github, npm etc)
 - Tänka på ordformen; "recruit" och "coder" är inte samma (siubstantiv eller verb - vilket ska det vara?)
@@ -25,14 +21,16 @@ Nice-to-haves (Jag):
 - En bild när jag föreläser på "train coders".
 - Skulle gärna ha en lista över alla konferenser jag pratat på.
 - siten "hoppar" lite när man växlar mellan två sidor där ena har scrollbar och den andra inte.
+- Om man kör utan push-state (IE9 är den enda jag vet om) så uppdaterar inte urlen när man navigrerar, så man kan inte refresha eller skicka en länk till någon. Tror dock inte det finns en enkel lösning på det... Sättet att hantera detta borde vara att göra fulla sidomladdningar i IE9.
+- Firefox i Windows visar väldigt pixelerade fontar.
+
+
 
 Fler ställen på webben:
 - facebook
 - sc2rank
 - last.fm
 - tumblr (stäng ner?)
-- npm
-- lanyrd
 
 
 
@@ -61,14 +59,3 @@ Gör följande för båda sizarna:
   - mobilen landscape
   - mobilen stående
   - cinema display
-
-
-
-
-
-
-
-
-
-
-
