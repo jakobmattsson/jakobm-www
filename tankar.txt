@@ -4,6 +4,9 @@ Must-haves:
 
 
 Nice-to-haves (Jag):
+- Lägg in snipern som en fotnot till min personlighet om att kämpa med utmaningar/problem.
+- Lägga in videos istället för slides på talk
+- Vid varje jobbreferens, skriv vilken roll jag hade.
 - Välj en snyggare font till "outdated browser"-sidan
 - Dumpa support för hash-routing. Webbläsare som inte har pushState får klara sig med vanliga sidomladdningar.
 - Lägg in tracking på alla länker (till gamla arbetsgivare, github, npm etc)
