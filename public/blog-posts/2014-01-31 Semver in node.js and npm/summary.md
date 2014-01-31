@@ -1,0 +1,1 @@
+A lot of folks seem to misunderstand semver and/or how to do versioning in npm. In particular `~` and `^`, which many believe to be kind of the same thing. This is my take on explaining the difference and why to use one over the other.
