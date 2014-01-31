@@ -106,7 +106,12 @@
       float: none;
       margin: 0 0 0 -20px;
     }
-    > p { margin: 10px 0 0 0; }
+    > p {
+      margin: 10px 0 0 0;
+      &::before, &::after {
+        font-size: 2.0rem;
+      }
+    }
   }
 }
 .reference-quote-short() {

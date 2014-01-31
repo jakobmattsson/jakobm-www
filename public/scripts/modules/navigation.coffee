@@ -1,5 +1,5 @@
-exports.dependsOn = ['disqus', 'tools', 'loadScript', 'window', 'showPage', 'unilytics']
-exports.execute = ({ disqus, tools, loadScript, window, showPage, unilytics }) ->
+exports.dependsOn = ['tools', 'loadScript', 'window', 'showPage', 'unilytics']
+exports.execute = ({ tools, loadScript, window, showPage, unilytics }) ->
 
   {toArray} = tools
 

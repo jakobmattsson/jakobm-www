@@ -11,8 +11,8 @@ rootPageName = 'home'
 
 
 
-exports.dependsOn = ['window', 'document', 'loadScript', 'tools', '$', 'historyWrapper', 'unilytics']
-exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, unilytics }) ->
+exports.dependsOn = ['window', 'document', 'loadScript', 'tools', '$', 'historyWrapper', 'unilytics', 'disqus']
+exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, unilytics, disqus }) ->
   
   win = window
   doc = document
@@ -52,10 +52,10 @@ exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, uni
 
     unilytics.page(name)
 
-    #pageElement = doc.getElementsByClassName(name)[0]
-    #if pageElement?.className.slice(0, 9) == 'blog-post'
-    #  blogPostTitle = pageElement.querySelector('header h2')
-    #  disqus.load(pageElement, name, blogPostTitle)
+    pageElement = doc.getElementsByClassName(name)[0]
+    if pageElement?.className.slice(0, 9) == 'blog-post'
+      blogPostTitle = pageElement.querySelector('header h2')
+      disqus.load(pageElement, name, blogPostTitle)
 
     scrollTo({ y: 0, animate: false })
 
