@@ -2,7 +2,7 @@ I just gave a [talk](https://speakerdeck.com/jakobmattsson/how-to-star-actually-
 
 As usual I ran a quick survey by the end. In the name of openness, self-improvement and hopefully as inspiration to others, I'll write a little about my learnings here.
 
-I got 38 responses (out of about 100 I'd say), which is good! A vast majority was positive and rated the talk high. There were some clear opinions on improvements though, which is the really interesting part.
+I got 38 responses (out of about 100 I'd say), which is good! A vast majority were positive and rated the talk high. There were some clear opinions on improvements though, which is the really interesting part.
 
 Quickly, on the positive side, words like the following were the most common: "energy, pace, well presented, focused, deliverance, high level, clear goal, dynamism, style, progression, code, humor, positive, honest". I'd summarize those things as (1) well-prepared and (2) well-presented.
 
