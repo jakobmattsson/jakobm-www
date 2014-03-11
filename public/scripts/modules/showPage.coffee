@@ -59,7 +59,7 @@ exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, uni
       blogPostTitle = pageElement.querySelector('header h2')
       disqus.load(pageElement, name, blogPostTitle)
 
-    scrollTo({ y: 0, animate: false })
+    scrollTo(0, 0)
 
   isMobileSized = ->
     win.innerWidth <= 760
