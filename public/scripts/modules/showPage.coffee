@@ -39,6 +39,8 @@ exports.execute = ({ window, document, loadScript, tools, $, historyWrapper, uni
     setPaddingTop(null, false)
 
   showPageMarkup = (name) ->
+    doc.title = "Jakob M: " + name
+
     newClass = makeBodyClassName(name)
     oldClass = doc.body.className
     changed = newClass != oldClass
