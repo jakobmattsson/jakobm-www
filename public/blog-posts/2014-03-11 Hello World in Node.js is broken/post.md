@@ -14,13 +14,9 @@ Super-simple! It's a web server in a few lines. Wow.
 
 Now, what's the error?
 
-Node.js is highly asynchronous and things rarely finish before functions return.
-If you've ever writting anything in JavaScript or Node.js you've been exposed
-to this and you know that it's a good thing. Often. Or sometimes. Or so.
-You also know it's hard to get it right. Actually, it's so hard that even this
-tiny program got it wrong.
+Node.js is highly asynchronous. Just because you called a function and that function has returned doesn't mean that the function has completed its task. If you've ever written anything in JavaScript or Node.js you've been exposed to this and you know that you should pass callbacks to solve this. The return value of a function is usually less useful than the invokation of the callback. You probably already know why this is powerful (async without threads etc). Oftentimes, that is. Or sometimes. Or so. You also know it's still hard to get it right. Actually, it's so hard that even this tiny program got it wrong.
 
-Here's a slightly enhanced version:
+Here's a slightly enhanced version that got it right:
 
     var http = require('http');
     var request = require('request');
