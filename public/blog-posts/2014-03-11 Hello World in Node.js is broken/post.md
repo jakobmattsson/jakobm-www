@@ -19,7 +19,6 @@ Node.js is highly asynchronous. Just because you called a function and that func
 Here's a slightly enhanced version that got it right:
 
     var http = require('http');
-    var request = require('request');
     http.createServer(function (req, res) {
       res.writeHead(200, {'Content-Type': 'text/plain'});
       res.end('Hello World\n');
