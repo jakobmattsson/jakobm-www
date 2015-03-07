@@ -18,3 +18,5 @@ di.registerVar('history', window.history)
 di.registerVar('analytics', window.analytics)
 
 di.registerAlias('$', 'jQuery')
+
+di.run ['navigation', 'tracking'], ->
