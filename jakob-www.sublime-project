@@ -1,0 +1,20 @@
+{
+  "folders": [{
+    "path": ".",
+    "file_exclude_patterns": [
+      "*.log",
+      "npm-shrinkwrap.json",
+      "*.sublime-workspace"
+    ],
+    "folder_exclude_patterns": [
+      ".opra-cache",
+      ".bower",
+      ".code",
+      "tmp",
+      ".git",
+      "components",
+      "node_modules",
+      ".cov"
+    ]
+  }]
+}
